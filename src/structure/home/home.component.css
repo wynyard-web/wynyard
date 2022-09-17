@@ -1,13 +1,13 @@
 .prof_col {
   float: left;
   height: 100%;
-  width: 15%;
+  width: 10%;
   border: 1px solid black;
 }
 .posts_col {
   float: left;
   height: 100%;
-  width: 55%;
+  width: 59%;
   border: 1px solid black;
 }
 .chat_col {
