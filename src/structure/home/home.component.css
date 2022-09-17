@@ -1,0 +1,41 @@
+.prof_col {
+  float: left;
+  height: 100%;
+  width: 15%;
+  border: 1px solid black;
+}
+.posts_col {
+  float: left;
+  height: 100%;
+  width: 55%;
+  border: 1px solid black;
+}
+.chat_col {
+  float: left;
+  height: 100%;
+  width: 30%;
+  border: 1px solid black;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+::-webkit-scrollbar
+{
+  width: 1px;
+}
+
+
+.chat_button
+{
+  float: right;
+}
+
+.prof_button
+{
+  float: left;
+}

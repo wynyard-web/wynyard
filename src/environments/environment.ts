@@ -11,6 +11,7 @@ export const environment = {
     apiKey: 'AIzaSyDV7W5Hv2CnumoHfr3Tdtq_Xf1Kp8Rsls4',
     authDomain: 'site-wynyard.firebaseapp.com',
     messagingSenderId: '788072440341',
+    dataBaseURL:'https://site-wynyard-default-rtdb.firebaseio.com/'
   },
   production: false
 };
