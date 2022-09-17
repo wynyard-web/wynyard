@@ -1,8 +1,8 @@
 <mat-drawer-container class="example-container">
   <mat-drawer
     #drawer
-    class="example-sidenav"
-    mode="side"
+    class="chat_sidenav"
+    mode="push"
     hasBackdrop="true"
     position="end"
   >
@@ -45,6 +45,7 @@
       mat-button
       (click)="drawer.toggle()"
       class="chat-button"
+      [disabled]="username==''"
     >
       Open Chats
     </button>
