@@ -1,7 +1,6 @@
 # Changelog (all changes to be reported here)
-## Date - Change - user
-
-### 17/9/2022 - changes by omkar
+<hr>
+### changes by Omkar (17/9/2022) 
 Modified Routing
 - Default path set as login for now
 - added path to the homepage
@@ -15,3 +14,4 @@ Added Several Coded static modules
   - home <b>Contains the homepage component</b>
   - header <b>empty</b>
   - footer <b>empty</b>
+<hr>
