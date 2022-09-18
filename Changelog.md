@@ -16,4 +16,24 @@ Added Several Coded static modules
   - footer <b>empty</b>
 <hr>
 
+### changes by Harshita (18/9/2022)
+Created register component
+- Enabled registration (connected with firebase)
+  - Created input fields for user details (No UI implemented yet)
+  - Registration Fields
+    - Full Name
+    - Username
+    - Email
+    - Password
+Login component
+- Enabled login (connected with firebase)
+  - Created input fields for user details (No UI implemented yet)
+  - Login credentials include
+    - Email
+    - Password
+Navigation
+- Enabled inter navigation between register and login component
+- Added new routes
+
+
 

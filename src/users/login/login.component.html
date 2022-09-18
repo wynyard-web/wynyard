@@ -1,6 +1,42 @@
-<h1>Enter Username</h1>
-Hello
+<!-- <h1>Enter Username</h1>
 <input #username>
 <button (click)="take_me_to_chats(username.value)">Click me</button>
-<br>
+<br> -->
 
+
+<div align="center">
+    <h1>
+    Login
+    </h1>
+    </div>
+    <br>
+    <br>
+    <div align = "center">
+    
+    
+    <div>
+     email <input type="email" #email>
+    </div>
+    <br>
+    <div>
+      password <input type = "password" #pass>
+    </div>
+    <br>
+    <button (click)="signIn(email.value, pass.value)">Login</button>
+    <br>
+    <br>
+    <!-- <a href="#" (click)="forgotPass()">forgot password?</a> -->
+    <button (click)="forgotPass()">
+      Forgot Password
+    </button>
+    <br>
+    <br>
+    OR
+    <br>
+    <br>
+
+    <button (click)="go_to_register()">
+      Register
+    </button>
+    </div>
+    
