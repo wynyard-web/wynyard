@@ -18,7 +18,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 //Mateiral
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
-
+import {MatButtonModule} from '@angular/material/button'
 
 //Modules
 import { UsersModule } from './../users/users.module';
@@ -44,6 +44,7 @@ import { UsersModule } from './../users/users.module';
     provideStorage(() => getStorage()),
     MatIconModule,
     MatSidenavModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,6 @@
-<!-- <h1>Enter Username</h1>
-<input #username>
-<button (click)="take_me_to_chats(username.value)">Click me</button>
-<br> -->
+<!-- 
 
-
+<body class="back">
 <div align="center">
     <h1>
     Login
@@ -25,7 +22,7 @@
     <button (click)="signIn(email.value, pass.value)">Login</button>
     <br>
     <br>
-    <!-- <a href="#" (click)="forgotPass()">forgot password?</a> -->
+    
     <button (click)="forgotPass()">
       Forgot Password
     </button>
@@ -39,4 +36,32 @@
       Register
     </button>
     </div>
-    
+  </body> -->
+
+
+
+  
+
+<!------ Include the above in your HEAD tag ---------->
+<body>
+<div class="login-reg-panel">	
+							
+		<div class="white-panel">
+			<div class="login-show">
+				<h1><b>LOGIN</b></h1>
+				<input type="text" placeholder="Email" #email>
+				<input type="password" placeholder="Password" #password>
+        <br>
+				<input type="button" value="Login" (click)="signIn(email.value, password.value)">
+				<!-- <a href="" (click)="forgotPass()">Forgot password?</a> -->
+        <button mat-button style="color:brown; border:0px; background-color: white;" (click)="forgotPass()">Forgot Password ?</button>
+        <br><br>
+        <br><br>
+        <br>
+        Don't have an account? 
+        <input type="button" value="Register" (click)="go_to_register()">
+			</div>
+			
+		</div>
+	</div>
+</body>

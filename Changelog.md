@@ -36,4 +36,9 @@ Navigation
 - Added new routes
 
 
+### Changes by Harshita (19/9/2022)
+Login Component
+- Designed frontend part (html and css)
+- Added the custom background made by Omkar
+- Checked earlier working of all buttons
 
