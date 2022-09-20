@@ -46,4 +46,11 @@ Login Component
 ### Changes by Harshita (20/9/2022)
 Login Component
 - Updated UI for login page
-  - updated login html and css file
+  - updated login html and css files
+
+
+
+### Changes by Harshita (20/9/2022)
+Registration Component
+- Updated UI for registration page
+  - updated registration html and css files
