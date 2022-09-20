@@ -1,65 +1,22 @@
-<!-- 
-
-<body class="back">
-<div align="center">
-    <h1>
-    Login
-    </h1>
-    </div>
-    <br>
-    <br>
-    <div align = "center">
-    
-    
-    <div>
-     email <input type="email" #email>
-    </div>
-    <br>
-    <div>
-      password <input type = "password" #pass>
-    </div>
-    <br>
-    <button (click)="signIn(email.value, pass.value)">Login</button>
-    <br>
-    <br>
-    
-    <button (click)="forgotPass()">
-      Forgot Password
-    </button>
-    <br>
-    <br>
-    OR
-    <br>
-    <br>
-
-    <button (click)="go_to_register()">
-      Register
-    </button>
-    </div>
-  </body> -->
-
-
-
-  
-
-<!------ Include the above in your HEAD tag ---------->
 <body>
 <div class="login-reg-panel">	
 							
 		<div class="white-panel">
 			<div class="login-show">
-				<h1><b>LOGIN</b></h1>
+				<h1 class="t-color">LOGIN</h1>
 				<input type="text" placeholder="Email" #email>
 				<input type="password" placeholder="Password" #password>
         <br>
 				<input type="button" value="Login" (click)="signIn(email.value, password.value)">
-				<!-- <a href="" (click)="forgotPass()">Forgot password?</a> -->
-        <button mat-button style="color:brown; border:0px; background-color: white;" (click)="forgotPass()">Forgot Password ?</button>
+				
+        <button mat-button style="border:0px; background-color: rgba(255, 255, 255, 0);" class="t-color" (click)="forgotPass()">Forgot Password ?</button>
         <br><br>
         <br><br>
         <br>
+        <div class="t-color">
         Don't have an account? 
-        <input type="button" value="Register" (click)="go_to_register()">
+      </div>
+        <input type="button" class="t-color" value="Register" (click)="go_to_register()">
 			</div>
 			
 		</div>

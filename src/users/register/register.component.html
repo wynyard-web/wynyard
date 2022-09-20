@@ -1,37 +1,29 @@
-<div align="center">
-    <h1>
-   Register
-    </h1>
-    </div>
-    <br>
-    <br>
-    <div align = "center">
-      <div>
-        Full Name <input #name>
+
+
+   <body>
+    <div class="login-reg-panel">	
+                  
+        <div class="white-panel">
+          <div class="login-show">
+            <h1 class="t-color">Register</h1>
+            <input type="text" placeholder="Name" #name>
+            <input type="text" placeholder="Username" #uname>
+            <input type="text" placeholder="Email" #email>
+            <input type="password" placeholder="Password" #password>
+            
+            <input type="button" value="Register" (click)="register(name.value, uname.value, email.value, password.value)">
+           <br>
+           <br>
+           <br>
+           
+            <div class="t-color" style="margin-left: 23%;">
+            Already have an account? 
+            <br>
+            <br>
+          </div>
+            <input type="button" class="t-color" value="Login" (click)="go_to_login()">
+          </div>
+          
+        </div>
       </div>
-  <br>
-      <div>
-      Username <input #username>
-      </div>
-  
-      <br>
-  
-    <div>
-     email <input type="email" #email>
-    </div>
-    <br>
-    <div>
-     password <input type = "password" #pass>
-    </div>
-    <br>
-    
-    
-    <button (click)="register(name.value, username.value, email.value, pass.value)">Register</button>
-    <br>
-    <h3>OR</h3>
-    
-    <button (click)="go_to_login()">Login</button>
-    
-  </div>
-  
-  
+    </body>
