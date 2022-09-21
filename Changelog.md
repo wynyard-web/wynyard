@@ -59,7 +59,7 @@ Registration Component
 
 
 ### Changes by Omkar (21/9/2022)
-Added and modified modules 
+Added and modified modules (Coded Static Modules and components - pending imports and exports)
 - Posts Module (New)
   - added component for post card displayed on the post_list (empty static code)
   - added component for post thumbnail for post_grid (empty static code)
@@ -67,3 +67,4 @@ Added and modified modules
   - added component for post_grid to display on profile pages (empty static code)
   - added component for post_list to display on homepage (empty static code)
 <hr>
+
