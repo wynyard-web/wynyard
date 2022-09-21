@@ -19,14 +19,17 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button'
+import { MatCardModule } from '@angular/material/card';
 
 //Modules
 import { UsersModule } from './../users/users.module';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { UsersModule } from './../users/users.module';
     provideStorage(() => getStorage()),
     MatIconModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,4 +12,8 @@ export class Post_listComponent implements OnInit {
   ngOnInit() {
   }
 
+  postList = [1, 2, 3, 4, 5, 6]
+
+
+
 }

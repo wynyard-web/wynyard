@@ -68,3 +68,16 @@ Added and modified modules (Coded Static Modules and components - pending import
   - added component for post_list to display on homepage (empty static code)
 <hr>
 
+
+### Changes by Harshita (21/9/2022)
+Chat component
+- Updated chat html and css file
+  - changed cursor hovering 
+
+Post_List component
+- Displaying list of recent posts (incomplete)  
+  - adjusted scrolling of different components on home page (temporarily)
+
+Profile component
+- created for user profile  
+

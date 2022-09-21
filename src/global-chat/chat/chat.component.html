@@ -8,7 +8,7 @@
   >
     <div class="chat_title">
       <button mat-fab class="backfab" (click)="drawer.toggle()" class="back-but">
-        <mat-icon>navigate_next</mat-icon>
+        <mat-icon style="cursor: pointer;">navigate_next</mat-icon>
       </button>
     </div>
     <div class="msgbox">
@@ -34,7 +34,7 @@
         id="chat_line"
       />
       <button (click)="add_to_chat(chat.value)">
-        <mat-icon>send</mat-icon>
+        <mat-icon style="cursor: pointer;">send</mat-icon>
       </button>
     </div>
   </mat-drawer>
@@ -46,6 +46,7 @@
       (click)="drawer.toggle()"
       class="chat-button"
       [disabled]="username==''"
+      
     >
       Open Chats
     </button>
