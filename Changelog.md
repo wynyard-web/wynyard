@@ -1,6 +1,7 @@
 # Changelog (all changes to be reported here)
 <hr>
-### changes by Omkar (17/9/2022) 
+
+### changes by Harshita (18/9/2022)
 Modified Routing
 - Default path set as login for now
 - added path to the homepage
@@ -34,27 +35,27 @@ Login component
 Navigation
 - Enabled inter navigation between register and login component
 - Added new routes
-
+<hr>
 
 ### Changes by Harshita (19/9/2022)
 Login Component
 - Designed frontend part (html and css)
 - Added the custom background made by Omkar
 - Checked earlier working of all buttons
-
+<hr>
 
 ### Changes by Harshita (20/9/2022)
 Login Component
 - Updated UI for login page
   - updated login html and css files
-
+<hr>
 
 
 ### Changes by Harshita (20/9/2022)
 Registration Component
 - Updated UI for registration page
   - updated registration html and css files
-
+<hr>
 
 
 ### Changes by Omkar (21/9/2022)
@@ -65,3 +66,4 @@ Added and modified modules
 - Structure Module (Modifications)
   - added component for post_grid to display on profile pages (empty static code)
   - added component for post_list to display on homepage (empty static code)
+<hr>
