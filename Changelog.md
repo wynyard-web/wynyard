@@ -79,5 +79,7 @@ Post_List component
   - adjusted scrolling of different components on home page (temporarily)
 
 Profile component
-- created for user profile  
+- created for user profile in user module
+- Designed UI (html and css)
+- Created options menu using drawer layout 
 

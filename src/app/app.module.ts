@@ -1,5 +1,4 @@
-import { GlobalChatModule } from './../global-chat/global-chat.module';
-import { StructureModule } from './../structure/structure.module';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -20,16 +19,18 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 
 //Modules
 import { UsersModule } from './../users/users.module';
-import { ProfileComponent } from './profile/profile.component';
+import { GlobalChatModule } from './../global-chat/global-chat.module';
+import { StructureModule } from './../structure/structure.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProfileComponent
+    AppComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -48,7 +49,8 @@ import { ProfileComponent } from './profile/profile.component';
     MatIconModule,
     MatSidenavModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
