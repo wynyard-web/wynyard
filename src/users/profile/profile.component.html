@@ -1,61 +1,61 @@
 <mat-drawer-container class="example-container" >
   <mat-drawer #drawer class="example-sidenav" mode="side" style="background-color:bisque ;">
-    
+
+    <img src="/assets/images/prj_logo_colour.png"  alt="Profile Picture" height="100px" width="100px"><br><br>
     <button mat-raised-button class="profile-button">Edit Profile</button> <br><br>
     <button mat-raised-button class="profile-button">Add Post</button> <br><br>
     <button mat-raised-button class="profile-button">Settings</button> <br><br>
-    
+
     <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
     <button (click)="showFiller = !showFiller" mat-raised-button>
       Toggle extra text
     </button> -->
 
-    
+
   </mat-drawer>
 
 
 
 <div >
-  
+
  <div style="text-align: center;">
  <button class="mat_icon_button"   (click)="drawer.toggle()">
   <mat-icon>more_vert</mat-icon>
   </button>
-  
+
     Full Name
-  
+
     <hr>
 </div>
 
-<div class="container">
-    <div class="row">
+<div >
+    <div >
       <div class="col-1">
-        
-        
+
+
         <mat-card class="matcard_col1">
-          
+
         <div class = "imgdiv">
-        <img src="/assets/images/asp1.PNG"  alt="Profile Picture" height="200px" width="200px">
+        <img src="/assets/images/prj_logo_black.png"  alt="Profile Picture" height="200px" width="200px">
         </div>
         </mat-card>
 
       </div>
-      
+
       <div class="col-2" align="center">
         <mat-card class="matcard_col2">
         <div>
             Username
         </div>
-        
         <br>
-      <br>
+        <br>
       <div>
         User Bio
       </div>
     </mat-card>
       </div>
-      
-      
+
+
     </div>
   </div>
 
@@ -65,6 +65,6 @@
     </h3>
   </div>
 
- 
+
 </div>
 </mat-drawer-container>

@@ -1,3 +1,4 @@
+import { ProfileComponent } from './../users/profile/profile.component';
 import { HomeComponent } from './../structure/home/home.component';
 import { ChatComponent } from './../global-chat/chat/chat.component';
 import { LoginComponent } from './../users/login/login.component';
@@ -9,7 +10,8 @@ const routes: Routes = [
   {path:"",component:LoginComponent},
   {path:"home",component:HomeComponent},
   {path:"login", component:LoginComponent},
-  {path:"register", component:RegisterComponent}
+  {path:"register", component:RegisterComponent},
+  {path:"profile", component:ProfileComponent},
   ];
 
 @NgModule({

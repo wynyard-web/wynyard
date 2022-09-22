@@ -82,4 +82,9 @@ Profile component
 - created for user profile in user module
 - Designed UI (html and css)
 - Created options menu using drawer layout 
+<hr>
 
+
+### Changes by Harshita and Omkar (22/9/2022)
+- Modified css for profile component (Harshita)
+- Added logo images
