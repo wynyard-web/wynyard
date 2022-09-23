@@ -52,7 +52,7 @@ img {
   position:absolute;
   cursor: pointer;
 
-  border: 0px;
+  border:none;
 }
 
 .profile-button {
