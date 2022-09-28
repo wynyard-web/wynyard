@@ -17,7 +17,7 @@
         <div
           [ngClass]="{ s1: username == c.username, s2: username != c.username }"
         >
-          <b>{{c.username}}</b>
+          <b>{{c.username}} <button (click)="delete_chat(c.key)"><mat-icon>delete</mat-icon></button> </b>
           <br>
           {{c.chat}}
         </div>
@@ -46,7 +46,7 @@
       (click)="drawer.toggle()"
       class="chat-button"
       [disabled]="username==''"
-      
+
     >
       Open Chats
     </button>
