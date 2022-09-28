@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog} from '@angular/material/dialog';
+import { EditProfileDialogComponent } from '../EditProfileDialog/EditProfileDialog.component';
+
 
 @Component({
   selector: 'app-profile',
@@ -7,11 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
   }
 
   showFiller = false;
 
+
+  openDialog(): void {
+    this.dialog.open(EditProfileDialogComponent, {
+      width: '250px'
+      
+    });
+  }
+
+
 }
+

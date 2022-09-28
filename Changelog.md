@@ -87,4 +87,12 @@ Profile component
 
 ### Changes by Harshita and Omkar (22/9/2022)
 - Modified css for profile component (Harshita)
-- Added logo images
+- Added logo images (Omkar)
+
+
+### Changes by Harshita (28/9/2022)
+- Profile Component
+  - Added dailog box feature for edit profile button
+- EditProfileDialog Component
+  - Created this component to edit user profile
+  - No new functionality added in this component yet.

@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EditProfileDialogComponent } from './EditProfileDialog/EditProfileDialog.component';
+
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
@@ -10,12 +12,16 @@ import { RegisterComponent } from './register/register.component';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditProfileDialogComponent
+    
+    
   ],
   imports: [
     CommonModule,
@@ -24,7 +30,8 @@ import {MatCardModule} from '@angular/material/card';
     StructureModule,
     MatMenuModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
 
   ],
   exports: [

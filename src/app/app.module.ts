@@ -21,15 +21,20 @@ import {MatButtonModule} from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 
+//cdk
+import {MatDialogModule} from '@angular/material/dialog';
+
 //Modules
 import { UsersModule } from './../users/users.module';
 import { GlobalChatModule } from './../global-chat/global-chat.module';
 import { StructureModule } from './../structure/structure.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent
+    
    
   ],
   imports: [
@@ -50,7 +55,8 @@ import { StructureModule } from './../structure/structure.module';
     MatSidenavModule,
     MatButtonModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
