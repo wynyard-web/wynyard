@@ -54,7 +54,8 @@ export class ProfileComponent implements OnInit {
     let userRef = ref(this.db, '/users/' + keymail);    
     onValue(userRef, (snapshot) => {
       const data = snapshot.val();
-      this.fullName = data.name      
+      this.fullName = data.name
+      this.username = data.username      
     });  
     
 

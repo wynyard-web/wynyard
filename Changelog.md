@@ -128,3 +128,10 @@ Profile component
   - key for registered user is now user's email
 - Profile Component
   - Fetched full name of the user
+
+
+### Changes by Harshita (01/10/2022)
+- Profile Component
+  - fetched username using user email
+- EditProfileDialog Component
+  - updated html and ts file    
