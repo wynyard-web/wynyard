@@ -98,6 +98,14 @@ Profile component
   - No new functionality added in this component yet.
 
 
+
+### Changes by Omkar (28/9/2022)
+- Confirm Dialog Component
+  - Standard compnent for a simple confirmation dialog box
+- Chat Component
+  - added functionality to delete user message (will add context menu with button to delete)
+
+
 ### Changes by Harshita (01/10/2022)
 - AddPost Component
   - Created AddPost Component

@@ -1,3 +1,4 @@
+import { ConfirmDialogComponent } from './ConfirmDialog/ConfirmDialog.component';
 import { GlobalChatModule } from './../global-chat/global-chat.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -20,7 +21,8 @@ import {MatIconModule} from '@angular/material/icon';
     HeaderComponent,
     FooterComponent,
     Post_gridComponent,
-    Post_listComponent
+    Post_listComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
@@ -35,8 +37,8 @@ import {MatIconModule} from '@angular/material/icon';
     HeaderComponent,
     FooterComponent,
     Post_gridComponent,
-    Post_listComponent
-
+    Post_listComponent,
+    ConfirmDialogComponent
   ]
 })
 export class StructureModule { }

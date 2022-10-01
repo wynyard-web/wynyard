@@ -41,6 +41,22 @@
   height: auto;
   width: 50%;
 }
+
+.s1 button
+{
+  display: block;
+  border: 0px;
+  color: red;
+  background-color: #f7f7f700;
+  float: right;
+
+}
+
+.s2 button
+{
+  display: none;
+}
+
 .sendmsg {
   display: flex;
   flex-flow: row wrap;

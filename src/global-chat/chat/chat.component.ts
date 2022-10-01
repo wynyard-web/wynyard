@@ -1,7 +1,9 @@
+import { ConfirmDialogComponent } from './../../structure/ConfirmDialog/ConfirmDialog.component';
 import { environment } from '../../environments/environment';
 import { Component, OnInit,Input, ViewChild, ElementRef } from '@angular/core';
 import { initializeApp } from 'firebase/app';
-import {getDatabase, ref, set,push, onValue,onChildAdded} from 'firebase/database'
+import {getDatabase, ref, set,push, onValue, remove} from 'firebase/database'
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class ChatComponent implements OnInit {
   @ViewChild('chat')
   chat_line!: ElementRef;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   x:any = [];
   all_chats:any = [];
@@ -29,6 +31,7 @@ export class ChatComponent implements OnInit {
       this.x=[]
       snapshot.forEach((childSnapshot) => {
         const data = childSnapshot.val()
+        data.key = childSnapshot.key
         this.x.push(data)
       })
     });
@@ -62,9 +65,24 @@ export class ChatComponent implements OnInit {
       snapshot.forEach((childSnapshot) => {
         const data = childSnapshot.val()
         this.x.push(data)
+        data.key = childSnapshot.key
       })
     });
   }
+  }
+
+  delete_chat(key:any)
+  {
+    const dialogref = this.dialog.open(ConfirmDialogComponent,{ width:'250px'});
+
+    dialogref.afterClosed().subscribe(confirmation=>{
+                                                      if(confirmation)
+                                                        {
+                                                          const delete_ref = ref(this.database,"/Chats/"+key+"/");
+                                                          remove(delete_ref);
+                                                        }
+
+                                                    })
   }
 
 
@@ -76,6 +94,7 @@ export class ChatComponent implements OnInit {
       snapshot.forEach((childSnapshot) => {
         const data = childSnapshot.val()
         this.x.push(data)
+        data.key = childSnapshot.key
       })
     });
   }

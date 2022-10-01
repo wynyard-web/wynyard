@@ -4,22 +4,24 @@ import { ChatComponent } from './chat/chat.component';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
 
 @NgModule({
   declarations: [
-    ChatComponent
+    ChatComponent,
   ],
   imports: [
     CommonModule,
     MatSidenavModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
   ],
   exports:
   [
-    ChatComponent
+    ChatComponent,
   ]
 })
 export class GlobalChatModule { }
