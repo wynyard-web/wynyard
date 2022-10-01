@@ -96,3 +96,14 @@ Profile component
 - EditProfileDialog Component
   - Created this component to edit user profile
   - No new functionality added in this component yet.
+
+
+### Changes by Harshita (01/10/2022)
+- AddPost Component
+  - Created AddPost Component
+  - Designed UI for this component (html and css)
+  - Added the path for this component in the routing module
+  - Added navigation
+    - From Profile component to AddPost component
+    - From AddPost component back to Profile component
+- Imported Posts module in the main module

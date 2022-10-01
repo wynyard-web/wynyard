@@ -28,7 +28,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { UsersModule } from './../users/users.module';
 import { GlobalChatModule } from './../global-chat/global-chat.module';
 import { StructureModule } from './../structure/structure.module';
-
+import { PostsModule } from 'src/posts/posts.module';
 
 
 @NgModule({
@@ -44,6 +44,7 @@ import { StructureModule } from './../structure/structure.module';
     UsersModule,
     StructureModule,
     GlobalChatModule,
+    PostsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),

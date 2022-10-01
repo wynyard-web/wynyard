@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog} from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { EditProfileDialogComponent } from '../EditProfileDialog/EditProfileDialog.component';
 
 
@@ -10,7 +11,7 @@ import { EditProfileDialogComponent } from '../EditProfileDialog/EditProfileDial
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private router: Router) {}
 
   ngOnInit() {
   }
@@ -23,6 +24,10 @@ export class ProfileComponent implements OnInit {
       width: '250px'
       
     });
+  }
+
+  go_to_Add_Post() {
+    this.router.navigate(['/add-post'])
   }
 
 
