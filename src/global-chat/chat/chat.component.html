@@ -17,7 +17,7 @@
         <div
           [ngClass]="{ s1: username == c.username, s2: username != c.username }"
         >
-          <b>{{c.username}} <button (click)="delete_chat(c.key)"><mat-icon>delete</mat-icon></button> </b>
+          <b>{{c.username}} <button (click)="delete_chat(c.key)"><mat-icon style="cursor: pointer;">delete</mat-icon></button> </b>
           <br>
           {{c.chat}}
         </div>
@@ -32,8 +32,9 @@
         style="width: max"
         placeholder="Enter your text....."
         id="chat_line"
+        (keyup.enter)="add_to_chat(chat.value)"
       />
-      <button (click)="add_to_chat(chat.value)">
+      <button (click)="add_to_chat(chat.value)" >
         <mat-icon style="cursor: pointer;">send</mat-icon>
       </button>
     </div>

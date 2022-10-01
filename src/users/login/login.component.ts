@@ -23,52 +23,28 @@ export class LoginComponent  {
   uname = "";
   
   app = initializeApp(environment.firebase)
-  realdb = getDatabase()
+  realdb = getDatabase(this.app)
 
   auth = getAuth(this.app)
 
   // provider = new GoogleAuthProvider();
   
-  async signIn(loginEmail:any, loginPass:any) {
-    const email = loginEmail
-    const pass = loginPass 
-    
-    this.fetchUsername(email)
-    
-    const userCredential = await signInWithEmailAndPassword(this.auth, email, pass)
+  async signIn(loginEmail:any, loginPass:any) {            
+    const userCredential = await signInWithEmailAndPassword(this.auth, loginEmail, loginPass)
     .then((userCredential) => {
-
       //const user = userCredential.user;
       console.log(userCredential.user)
       console.log("LogedIn")
-      this.router.navigate(["/home"],{ queryParams: { user: this.uname } })
+      this.router.navigate(["/home"],{ queryParams: { email:loginEmail } })
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      alert("Username or Password incorrect")
       console.log("There was some error logging in!")
-    });
-
-    
+    });    
    
-  }
-
-  actionCodeSettings = {
-    // URL you want to redirect back to. The domain (www.example.com) for this
-    // URL must be in the authorized domains list in the Firebase Console.
-    url: 'https://www.example.com/finishSignUp?cartId=1234',
-    // This must be true.
-    handleCodeInApp: true,
-    iOS: {
-      bundleId: 'com.example.ios'
-    },
-    android: {
-      packageName: 'com.example.android',
-      installApp: true,
-      minimumVersion: '12'
-    },
-    dynamicLinkDomain: 'example.page.link'
-  };
+  }  
 
   
    async forgotPass() {
@@ -102,22 +78,7 @@ export class LoginComponent  {
 //   this.Router.navigate(["/home"],{ queryParams: { user: username } })
 // }
 
-fetchUsername(em : string) {
-  const realdb = getDatabase()
-  const realRef = ref(realdb, '/users');
-    onValue(realRef, (snapshot) => {      
-      snapshot.forEach((childSnapshot) => {
-        const data = childSnapshot.val()
-        if (data.email == em) {
-        this.uname = data.username
-        console.log(this.uname)
-        
-        }
-        
-      })
-      
-    });
-}
+
 
 
 }

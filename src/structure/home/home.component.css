@@ -1,19 +1,23 @@
+.main-row {
+  width: 100%;
+}
+
 .prof_col {
   float: left;
-  height: 100%;
+  height: 100vh;
   width: 10%;
   border: 1px solid black;
 }
 .posts_col {
   float: left;
-  height: 100%;
-  width: 59%;
+  height: 100vh;
+  width: 60%;
   border: 1px solid black;    
 }
 
 .chat_col {
   float: left;
-  height: 100%;
+  height: 100vh;
   width: 30%;
   border: 1px solid black;
   
@@ -42,3 +46,5 @@
 {
   float: left;
 }
+
+

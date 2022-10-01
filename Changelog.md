@@ -115,3 +115,16 @@ Profile component
     - From Profile component to AddPost component
     - From AddPost component back to Profile component
 - Imported Posts module in the main module
+
+
+### Changes by Harshita (01/10/2022)
+- Home Component
+  - Updated UI for this component
+  - Username is fetched from home component
+- Chat Component
+  - Updated UI for this component
+  - Enabled enter key for sending chat  
+- Register Component
+  - key for registered user is now user's email
+- Profile Component
+  - Fetched full name of the user

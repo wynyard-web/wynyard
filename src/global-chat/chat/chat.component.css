@@ -99,7 +99,7 @@
 .msgbox
 {
   overflow-y: scroll;
-  height: 750px;
+  height: 80vh;
   display:flex;
   flex-direction:column-reverse;
   background-color: rgb(131, 248, 232);
@@ -112,7 +112,7 @@
 
 .example-container
 {
-  height: 850px;
+  height: calc(100% - 47px);
   background-color: rgb(137, 245, 245);
   border-radius: 20px;
 }
@@ -120,6 +120,7 @@
 .chat_sidenav
 {
   width: 100%;
+  
 }
 
 .example-sidenav-content {

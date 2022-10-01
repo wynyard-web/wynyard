@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog} from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EditProfileDialogComponent } from '../EditProfileDialog/EditProfileDialog.component';
+import { getDatabase, ref, onValue } from "firebase/database";
+import { initializeApp } from 'firebase/app';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -11,12 +14,24 @@ import { EditProfileDialogComponent } from '../EditProfileDialog/EditProfileDial
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private router: Router) {}
+  constructor(public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {}
+
+
+  username:any = ""
+  email:any = ""
+  fullName:any = ""
 
   ngOnInit() {
+    this.route.queryParamMap.subscribe(params => this.email = params.get("email"))
+    this.fetch_user_data()
   }
 
   showFiller = false;
+
+  app = initializeApp(environment.firebase)
+
+  // childKey:any 
+  
 
 
   openDialog(): void {
@@ -30,6 +45,23 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/add-post'])
   }
 
+
+  db = getDatabase(this.app);
+  
+
+  fetch_user_data():any {
+    const keymail = this.email.replace(".","")
+    let userRef = ref(this.db, '/users/' + keymail);    
+    onValue(userRef, (snapshot) => {
+      const data = snapshot.val();
+      this.fullName = data.name      
+    });  
+    
+
+  }
+
+  
+  
 
 }
 

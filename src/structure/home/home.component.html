@@ -1,7 +1,7 @@
-<div class="row">
+<div class="main-row">
   <div class="prof_col" #settings>
-    <h1>Profile Setting Component</h1>
-    <a href="/profile">Profile</a>
+    <h1>Profile Setting Component</h1>    
+    <button mat-raised-button (click)="go_to_profile()">Profile</button>
   </div>
   <div class="posts_col" #posts>
     <h1>Main Component</h1>
@@ -10,7 +10,7 @@
   </div>
   <div class="chat_col" #chats>
     <h1>Welcome {{username}}</h1>
-    <app-chat [username]="username"></app-chat>
+    <app-chat [username]="username" ></app-chat>
   </div>
 
 </div>
