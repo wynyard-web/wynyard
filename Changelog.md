@@ -135,3 +135,9 @@ Profile component
   - fetched username using user email
 - EditProfileDialog Component
   - updated html and ts file    
+
+
+### Changes by Omkar and Harshita (03/10/2022)
+- Profile Component
+  - Fetching data using get() method instead of onValue() method  
+- Note for Omkar: Modify the get() for login and generate a service asap.   
