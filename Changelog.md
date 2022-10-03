@@ -1,11 +1,10 @@
 # Changelog (all changes to be reported here)
 <hr>
 
-### changes by Harshita (18/9/2022)
-Modified Routing
-- Default path set as login for now
-- added path to the homepage
+#### Previous Changes on the chat_test
 
+
+### Changes by Omkar (17/9/2022)
 Added Several Coded static modules
 - Global Chat
   - Contains the chat component <b> Sidenav to open chat</b>
@@ -15,6 +14,15 @@ Added Several Coded static modules
   - home <b>Contains the homepage component</b>
   - header <b>empty</b>
   - footer <b>empty</b>
+
+
+<hr>
+
+### changes by Harshita (18/9/2022)
+Modified Routing
+- Default path set as login for now
+- added path to the homepage
+
 <hr>
 
 ### changes by Harshita (18/9/2022)
@@ -35,6 +43,7 @@ Login component
 Navigation
 - Enabled inter navigation between register and login component
 - Added new routes
+
 <hr>
 
 ### Changes by Harshita (19/9/2022)
@@ -42,12 +51,14 @@ Login Component
 - Designed frontend part (html and css)
 - Added the custom background made by Omkar
 - Checked earlier working of all buttons
+
 <hr>
 
 ### Changes by Harshita (20/9/2022)
 Login Component
 - Updated UI for login page
   - updated login html and css files
+
 <hr>
 
 
@@ -55,6 +66,7 @@ Login Component
 Registration Component
 - Updated UI for registration page
   - updated registration html and css files
+
 <hr>
 
 
@@ -66,6 +78,7 @@ Added and modified modules (Coded Static Modules and components - pending import
 - Structure Module (Modifications)
   - added component for post_grid to display on profile pages (empty static code)
   - added component for post_list to display on homepage (empty static code)
+
 <hr>
 
 
@@ -82,6 +95,7 @@ Profile component
 - created for user profile in user module
 - Designed UI (html and css)
 - Created options menu using drawer layout 
+
 <hr>
 
 
@@ -89,6 +103,7 @@ Profile component
 - Modified css for profile component (Harshita)
 - Added logo images (Omkar)
 
+<hr>
 
 ### Changes by Harshita (28/9/2022)
 - Profile Component
@@ -97,7 +112,7 @@ Profile component
   - Created this component to edit user profile
   - No new functionality added in this component yet.
 
-
+<hr>
 
 ### Changes by Omkar (28/9/2022)
 - Confirm Dialog Component
@@ -105,6 +120,7 @@ Profile component
 - Chat Component
   - added functionality to delete user message (will add context menu with button to delete)
 
+<hr>
 
 ### Changes by Harshita (01/10/2022)
 - AddPost Component
@@ -116,6 +132,7 @@ Profile component
     - From AddPost component back to Profile component
 - Imported Posts module in the main module
 
+<hr>
 
 ### Changes by Harshita (01/10/2022)
 - Home Component
@@ -129,6 +146,7 @@ Profile component
 - Profile Component
   - Fetched full name of the user
 
+<hr>
 
 ### Changes by Harshita (01/10/2022)
 - Profile Component
@@ -136,8 +154,11 @@ Profile component
 - EditProfileDialog Component
   - updated html and ts file    
 
+<hr>
 
 ### Changes by Omkar and Harshita (03/10/2022)
 - Profile Component
   - Fetching data using get() method instead of onValue() method  
 - Note for Omkar: Modify the get() for login and generate a service asap.   
+
+<hr>
