@@ -1,10 +1,10 @@
+import { UserDataService } from './../../Services/user-data.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { initializeApp } from "firebase/app";
-import { Auth, getAuth, GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword} from "firebase/auth";
+import {  getAuth, sendPasswordResetEmail, signInWithEmailAndPassword} from "firebase/auth";
 import { environment } from 'src/environments/environment';
-import { ActivatedRoute } from '@angular/router';
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, get } from 'firebase/database';
 
 
 @Component({
@@ -15,26 +15,30 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 export class LoginComponent  {
 
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private user_data_service:UserDataService) { }
 
   ngOnInit(): void {
   }
 
   uname = "";
-  
+
   app = initializeApp(environment.firebase)
   realdb = getDatabase(this.app)
 
   auth = getAuth(this.app)
 
   // provider = new GoogleAuthProvider();
-  
-  async signIn(loginEmail:any, loginPass:any) {            
+
+  user_details:any;
+
+
+  async signIn(loginEmail:any, loginPass:any) {
     const userCredential = await signInWithEmailAndPassword(this.auth, loginEmail, loginPass)
     .then((userCredential) => {
       //const user = userCredential.user;
       console.log(userCredential.user)
       console.log("LogedIn")
+      this.user_data_service.Useremail = loginEmail;
       this.router.navigate(["/home"],{ queryParams: { email:loginEmail } })
     })
     .catch((error) => {
@@ -42,13 +46,13 @@ export class LoginComponent  {
       const errorMessage = error.message;
       alert("Username or Password incorrect")
       console.log("There was some error logging in!")
-    });    
-   
-  }  
+    });
 
-  
+  }
+
+
    async forgotPass() {
-    let fpemail: any    
+    let fpemail: any
     console.log("forgot password method called")
     fpemail = prompt("Enter your email:");
     console.log("password reset email:", fpemail)
@@ -64,7 +68,7 @@ export class LoginComponent  {
     const errorMessage = error.message;
     // ..
   });
-    
+
   }
 
   go_to_register() {

@@ -1,7 +1,9 @@
+import { RouterModule } from '@angular/router';
 import { ConfirmDialogComponent } from './ConfirmDialog/ConfirmDialog.component';
 import { GlobalChatModule } from './../global-chat/global-chat.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 
 // Components
 import { HomeComponent } from './home/home.component';
@@ -26,6 +28,7 @@ import {MatIconModule} from '@angular/material/icon';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     GlobalChatModule,
     MatIconModule,
     MatSidenavModule,

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { UserDataService } from './../../Services/user-data.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog} from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EditProfileDialogComponent } from '../EditProfileDialog/EditProfileDialog.component';
@@ -14,30 +15,31 @@ import { environment } from 'src/environments/environment';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {}
 
 
-  username:any = ""
-  email:any = ""
-  fullName:any = ""
+  constructor(public dialog: MatDialog, private router: Router, private user_data_fetch:UserDataService) {}
+
+
+  fullName:any;
+  userName:any;
 
   ngOnInit() {
-    this.route.queryParamMap.subscribe(params => this.email = params.get("email"))
-    this.fetch_user_data()
+    this.fullName = this.user_data_fetch.UserData.name;
+    this.userName = this.user_data_fetch.UserData.usernamme;
   }
 
   showFiller = false;
 
-  app = initializeApp(environment.firebase)
+  //app = initializeApp(environment.firebase)
 
-  // childKey:any 
-  
+  // childKey:any
+
 
 
   openDialog(): void {
     this.dialog.open(EditProfileDialogComponent, {
       width: '250px'
-      
+
     });
   }
 
@@ -46,34 +48,34 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  db = getDatabase(this.app);
-  
+  //db = getDatabase(this.app);
 
-  fetch_user_data():any {
-    const keymail = this.email.replace(".","")
-    let userRef = ref(this.db, '/users/' + keymail); 
-       
-    // onValue() = It is useful if there is a change in the data
-    // get() = It is used to get just the data from database
 
-    get(userRef).then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log("get:",snapshot.val());
-        const data = snapshot.val();
-        this.fullName = data.name
-        this.username = data.username 
-      } else {
-        console.log("No data available");
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
-    
+  // fetch_user_data():any {
+  //   const keymail = this.email.replace(".","")
+  //   let userRef = ref(this.db, '/users/' + keymail);
 
-  }
+  //   // onValue() = It is useful if there is a change in the data
+  //   // get() = It is used to get just the data from database
 
-  
-  
+  //   get(userRef).then((snapshot) => {
+  //     if (snapshot.exists()) {
+  //       console.log("get:",snapshot.val());
+  //       const data = snapshot.val();
+  //       this.fullName = data.name
+  //       this.username = data.username
+  //     } else {
+  //       console.log("No data available");
+  //     }
+  //   }).catch((error) => {
+  //     console.error(error);
+  //   });
+
+
+  // }
+
+
+
 
 }
 
