@@ -179,7 +179,9 @@ Profile component
 - Login Component
   - Sets a global email after login 
   - Attempt made to set entire user data dynamically but async prevents setting property as required
-=======
 
 <hr>
->>>>>>> 3869ae492aae5b3dd28da667a3de27c4a1000544
+
+
+
+
