@@ -20,8 +20,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     RegisterComponent,
     ProfileComponent,
     EditProfileDialogComponent
-    
-    
+
+
   ],
   imports: [
     CommonModule,

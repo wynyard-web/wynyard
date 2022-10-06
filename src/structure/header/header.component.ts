@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { UserDataService } from './../../Services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ud:UserDataService, private router:Router) { }
 
   ngOnInit(): void {
+
   }
 
+  logout()
+  {
+    this.ud.set_logout();
+    this.router.navigate(["/home"]);
+  }
 }

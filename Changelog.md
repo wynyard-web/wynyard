@@ -160,5 +160,28 @@ Profile component
 - Profile Component
   - Fetching data using get() method instead of onValue() method  
 - Note for Omkar: Modify the get() for login and generate a service asap.   
+<<<<<<< HEAD
+  
+### Changes by Omkar (04/10/2022)
+- App Routing Module
+  - Changed default page to the home page
+- UserData Service
+  - Simple service for setting and getting data for the user pages instead of querying database every time
+    - User Data :- Contains all user data (set with email)
+    - User Email :- Set once with email for login (acts as a session variable)
+- Header Component
+  - Simple Login Button to route to login
+  - Logout button to clear set data 
+- Home Component (Major Overhaul)
+  - Added data fetching and setting using firebase + service
+  - Simple fix to not let user access profile if username/email =""
+  - Send username thorugh Userdat to chat
+- Login Component
+  - Sets a global email after login 
+  - Attempt made to set entire user data dynamically but async prevents setting property as required
 
 <hr>
+
+
+
+
