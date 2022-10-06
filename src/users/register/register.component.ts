@@ -20,12 +20,16 @@ export class RegisterComponent implements OnInit {
     console.log("omkarelectric892@gmail.com".replace('.',''))
   }
 
+  pass_dont_match = false
+
   app = initializeApp(environment.firebase)
 
   auth = getAuth(this.app)
   
-  register(fullname:any, uname:any, email:any, password:any) {    
-    let keymail = email.replace('.','')
+  register(fullname:any, uname:any, email:any, password:any, conf_password:any) {  
+    if (password == conf_password) {
+      this.pass_dont_match = false
+      let keymail = email.replace('.','')
     const database = getDatabase()
     let userRef = ref(database, 'users/' + keymail)
     //let newUser = push(userRef)
@@ -57,6 +61,11 @@ export class RegisterComponent implements OnInit {
 
   });
 
+    }  
+    else {
+      this.pass_dont_match = true
+    }
+    
   
     
 

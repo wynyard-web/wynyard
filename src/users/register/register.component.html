@@ -10,8 +10,13 @@
             <input type="text" placeholder="Username" #uname>
             <input type="text" placeholder="Email" #email>
             <input type="password" placeholder="Password" #password>
+            <input type="password" placeholder="Confirm Password" #con_password>
+
+            <div *ngIf="pass_dont_match">
+              Passwords don't match
+            </div>
             
-            <input type="button" value="Register" (click)="register(name.value, uname.value, email.value, password.value)">
+            <input type="button" value="Register" (click)="register(name.value, uname.value, email.value, password.value, con_password.value)">
            <br>
            <br>
            <br>

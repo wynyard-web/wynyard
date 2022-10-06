@@ -4,7 +4,7 @@
 		<div class="white-panel">
 			<div class="login-show">
 				<h1 class="t-color">LOGIN</h1>
-				<input type="text" placeholder="Email" #email>
+				<input type="text" placeholder="Email" #email autofocus>
 				<input type="password" placeholder="Password" #password>
         <br>
 				<input type="button" value="Login" (click)="signIn(email.value, password.value)">

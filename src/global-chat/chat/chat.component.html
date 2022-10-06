@@ -17,7 +17,7 @@
         <div
           [ngClass]="{ s1: username == c.username, s2: username != c.username }"
         >
-          <b>{{c.username}} <button (click)="delete_chat(c.key)"><mat-icon style="cursor: pointer;">delete</mat-icon></button> </b>
+          <b>{{c.username}} <mat-icon style="cursor: pointer;" (click)="delete_chat(c.key)">delete</mat-icon> </b>
           <br>
           {{c.chat}}
         </div>

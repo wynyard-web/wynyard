@@ -42,17 +42,16 @@
   width: 50%;
 }
 
-.s1 button
+.s1 mat-icon
 {
-  display: block;
-  border: 0px;
-  color: red;
-  background-color: #f7f7f700;
+  display: block;  
+  color: red;  
   float: right;
-
+  font-size: 120%;
+  
 }
 
-.s2 button
+.s2 mat-icon
 {
   display: none;
 }
