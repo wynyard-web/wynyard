@@ -182,6 +182,12 @@ Profile component
 
 <hr>
 
+### Changes by Harshita (06/10/22)
+- Register Component
+  - Confirm password added
+- AddPost Component
+  - Used 'location' to go back to previous page instead of navigation
+- Other small html and css changes      
 
 
 
