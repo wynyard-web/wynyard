@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostTasksService } from 'src/Services/post-tasks.service';
 
 @Component({
   selector: 'app-post_list',
@@ -7,13 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Post_listComponent implements OnInit {
 
-  constructor() { }
+  constructor(private post_service:PostTasksService) { }
 
   ngOnInit() {
+    this.post_service.get_all_posts()
+    
   }
 
-  postList = [1, 2, 3, 4, 5, 6]
+  all_post_url_List:[] = this.post_service.post_url_list
+
+  typeOfFile() {
+    for (let url in this.post_service.post_url_list) {
+      console.log(url)
+    }
+  }
 
 
 
 }
+
+

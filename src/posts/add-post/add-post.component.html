@@ -11,13 +11,25 @@
         
         <div class="row-2">
             <div class="preview">
-
+                <img [src] = "url" *ngIf="format==='image' && url" style="height: 100%; width:100%">
+                <video [src]="url" *ngIf="format==='video' && url" style="height: 100%; width:100%" controls></video>
             </div>
 
-            <div>    
-                <button mat-raised-button class="select-file-button">
+            <div> 
+                <button mat-raised-button class="select-file-button"> 
+                     
+                <label for="new-post" required class="input-file-label">
                     Select File
-                </button>
+                    <input type="file" id = "new-post"  class="input-file-button" required (change)="onSelectFile($event)">
+                </label>
+            </button>    
+                
+                 
+                
+                    
+                
+                    
+                
                 
                 <h3 class="text-caption">
                     Caption
@@ -28,7 +40,7 @@
                 </textarea>
             </div>
 
-            <button mat-raised-button class="upload-button">
+            <button mat-raised-button class="upload-button" (click)="upload_post()">
                 Upload
             </button>
 

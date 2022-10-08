@@ -182,12 +182,49 @@ Profile component
 
 <hr>
 
-### Changes by Harshita (06/10/22)
+### Changes by Harshita (06/10/2022)
 - Register Component
   - Confirm password added
 - AddPost Component
   - Used 'location' to go back to previous page instead of navigation
 - Other small html and css changes      
 
-
-
+### Changes by Harshita (08/10/2022)
+- AddPost Component
+  - Added functionality for selecting file from system
+  - Added preview of the file being uploaded
+  - Updated css as required
+  - upload post function present here calls the upload post function from post service
+- Services Folder
+  - Created new service -> PostTasts
+- PostTasks Service
+  - Contains post upload function
+    - Post upload functionality introduced
+    - seperate folder is being created for posts 
+    - posts folder contains keymail for each user
+    - inside the keymail there will be posts uploaded by each user
+    - different folder for profile pics will be created in near future
+  - contains post delete function
+  - contains fetch user posts function
+    - fetches posts for a particular loged in user
+  - contains fetch all posts function
+    - fetches all the posts uploaded till date
+    - gets the url of each post and pushes it into a list
+  - contains save metadata of file function  
+- src folder
+  - Created new folder -> Classes
+- Classes Folder     
+  - Contains ts file that holds class for metadata of post
+- Post metadata File 
+  - contains class PostMetadata
+  - Metadata of post contains the following 
+    - keymail
+    - name
+    - post_url
+    - post
+    - fileType
+- PostList component
+  - imported PostTasks service
+  - fetched the list of url of all the posts
+  - displayed all the posts in PostList html    
+  

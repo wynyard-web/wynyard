@@ -15,7 +15,7 @@ export class UserDataService {
   set_logout()
   {
     this.Useremail = "";
-    this.UserData = {"username":"fds","email":"","name":""};
+    this.UserData = {"username":"","email":"","name":""};
   }
 
 }

@@ -15,10 +15,10 @@
 
 .preview {
     width : 46%;
-    height: 70%;
+    height: 60%;
     float: left;
     margin: 2%;
-    background-color: rgb(246, 255, 150);
+    background-color: white;
     border: 3px solid brown;
 }
 
@@ -32,6 +32,9 @@
     background-color: navy;
     border: 2px solid brown;
     cursor: pointer;
+    text-align: center;
+    
+    
 }
 
 .text-caption {
@@ -74,4 +77,21 @@
 
 .new-post-text {
     margin-top: -2%;
+}
+
+.input-file-button {
+    /* height:100%;
+    width: 100%; */
+    /* color:rgba(240, 254, 255, 0);
+    background-color: rgba(240, 253, 255, 0);
+    text-decoration-color: rgba(240, 252, 255, 0); */
+    /* visibility:hidden; */
+    display:none;
+}
+
+.input-file-label {
+    margin:0px;
+    width:100%;
+    height:100%;
+    cursor:pointer;
 }

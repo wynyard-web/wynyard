@@ -2,7 +2,7 @@
 <div class="main-row">
   <div class="prof_col" #settings>
     <h1>Profile Setting Component</h1>
-    <button mat-raised-button (click)="go_to_profile()"[disabled]="logged_in_user.username==''">Profile</button>
+    <button mat-raised-button style="cursor: pointer;" (click)="go_to_profile()" [disabled]="logged_in_user.username==''">Profile</button>
   </div>
   <div class="posts_col" #posts>
     <h1>Main Component</h1>

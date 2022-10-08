@@ -1,21 +1,17 @@
 
 <div class="main_scroll">
-  <ul *ngFor="let post of postList" class="main_scroll">
+  <button (click)="typeOfFile()">type of file</button>
+  <ul *ngFor="let post of all_post_url_List" class="main_scroll">
     <li>
       <mat-card class="example-card">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          <!-- <div mat-card-avatar class="example-header-image"></div> -->
+          <mat-card-title>Username</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <img mat-card-image src={{post}} alt="Photo of a Shiba Inu">
         <mat-card-content>
-          <p>
-            <b>{{post}}</b>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
+          
         </mat-card-content>
         <mat-card-actions>
           <button mat-button>LIKE</button>
@@ -26,3 +22,8 @@
   </ul>
 </div>
 
+
+
+ <!-- <div >
+  <button mat-button-raised style="height: 50px; width:50px;"  (click)="post_list()"> click me</button>
+ </div> -->
