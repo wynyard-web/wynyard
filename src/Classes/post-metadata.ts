@@ -3,8 +3,8 @@ import { Time } from "@angular/common"
 export class Post_Metadata {
     keymail:any
     name:any
-    post_url:any
-    //size:any
+    caption:any
+    post_url!:String    
     post:any
     fileType:any
     // date!:Date

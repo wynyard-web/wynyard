@@ -228,3 +228,15 @@ Profile component
   - fetched the list of url of all the posts
   - displayed all the posts in PostList html    
   
+
+
+### Changes by Harshita (10/10/2022)
+- PostTasks Service
+  - Updated function save metadata of file
+  - Now it uploades metadata into the firebase
+  - Creating error while adding image url (calling it invalid)
+  - So updating firestore without adding url
+  - Works fine
+- Posrmetadata.ts
+  - post_url datatype changed to string
+  - Still getting invalid url error while updating data to firestore

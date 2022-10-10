@@ -4,30 +4,57 @@ import { UserDataService } from './user-data.service';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL, listAll, StorageReference } from "firebase/storage";
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
+import { getFirestore } from 'firebase/firestore';
+import {doc, setDoc, collection, addDoc} from 'firebase/firestore';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostTasksService {
 
-  constructor(private userdata:UserDataService) { }
+  constructor(private userdata:UserDataService,
+    
+    ) { }
 
   app = initializeApp(environment.firebase)  
 
   firebase_storage = getStorage(this.app)
 
+  firebase_firestore_db = getFirestore(this.app)
+
+  
   post_url_list:any = []
 
   
 
-  save_metadata_of_post(current_post_data:Post_Metadata) {
-    // const post_metadata = {
-    //   size : current_post_data.size,
-    //   name: current_post_data.name,
-    //   keymail:this.keymail,
+  async save_metadata_of_post(current_post_data:Post_Metadata) {
+    const keymail = this.userdata.Useremail.replace(".", "")
 
+    // const postMetadata = {
+    //   caption: current_post_data.caption,
+    //   name: current_post_data.name,
+    //   keymail: this.userdata.Useremail.replace(".", ""),
+    //   post_url: current_post_data.post_url,
+    //   fileType:current_post_data.fileType
 
     // }
+    
+    try {
+      const docRef = await addDoc(collection(this.firebase_firestore_db, "posts_metadata"), {
+          caption: current_post_data.caption,
+          name: current_post_data.name,
+          keymail: keymail,
+          //post_url: current_post_data.post_url,
+          fileType:current_post_data.fileType
+      });
+      //console.log("Document written with ID: ", docRef.id);
+      alert("Data uploaded in firestore successfully")
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+
+    
   }
 
   
@@ -87,6 +114,7 @@ export class PostTasksService {
     });
   }
 );
+  return current_post_data;
   }
 
   delete_post() {}
@@ -125,6 +153,7 @@ export class PostTasksService {
            
       
     });
+    
 
     
   }).catch((error) => {

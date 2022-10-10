@@ -31,16 +31,16 @@
                     
                 
                 
-                <h3 class="text-caption">
+                <h3 class="text-caption" >
                     Caption
                 </h3>
 
-                <textarea class="textarea-position">
+                <textarea class="textarea-position" #caption>
 
                 </textarea>
             </div>
 
-            <button mat-raised-button class="upload-button" (click)="upload_post()">
+            <button mat-raised-button class="upload-button" (click)="upload_post(caption.value)">
                 Upload
             </button>
 

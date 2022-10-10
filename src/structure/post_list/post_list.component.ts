@@ -12,16 +12,17 @@ export class Post_listComponent implements OnInit {
 
   ngOnInit() {
     this.post_service.get_all_posts()
-    
+    this.all_post_url_List = []
+    this.all_post_url_List = this.post_service.post_url_list
   }
 
-  all_post_url_List:[] = this.post_service.post_url_list
-
-  typeOfFile() {
-    for (let url in this.post_service.post_url_list) {
-      console.log(url)
-    }
-  }
+  
+  all_post_url_List:[] = []
+  // typeOfFile() {
+  //   for (let url in this.post_service.post_url_list) {
+  //     console.log(url)
+  //   }
+  // }
 
 
 
