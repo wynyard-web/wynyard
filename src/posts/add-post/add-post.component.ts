@@ -66,11 +66,12 @@ export class AddPostComponent implements OnInit {
 
   upload_post(caption:any) {
     this.current_post_data.caption = caption
-    console.log("current_post_data before upload:", this.current_post_data)
+    
+    //console.log("current_post_data before upload:", this.current_post_data)
     this.current_post_data = this.post_service.Upload_post(this.current_post_data)
-    console.log("current_post_data after upload:", this.current_post_data)
+    //console.log("current_post_data after upload:", this.current_post_data)
     this.post_service.save_metadata_of_post(this.current_post_data)
-    console.log("current_post_data after updating firestore:", this.current_post_data)
+    //console.log("current_post_data after updating firestore:", this.current_post_data)
   }
 
 

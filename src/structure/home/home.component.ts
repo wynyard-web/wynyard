@@ -15,11 +15,12 @@ export class HomeComponent implements OnInit {
 
   constructor(private route:ActivatedRoute, private router:Router, private ud:UserDataService) { }
 
-  username:any= ""
+  username:any= this.ud.username
   email:any = ""
   // public w:any;
 
   logged_in_user:any = {'username':""};
+  
 
   app = initializeApp(environment.firebase)
   db = getDatabase(this.app)
@@ -29,34 +30,42 @@ export class HomeComponent implements OnInit {
     // this.fetchUsername(this.email)
     // this.w = window.innerWidth;
     //this.username = this.ud.get_username()
-    if(this.ud.Useremail=="")
+
+    console.log("user_email:", this.ud.email)
+    if(this.ud.email=="")
     {
       console.log("Not Logged In")
     }
     else
     {
-      this.fetch_user_details(this.ud.Useremail)
+      this.fetch_user_details(this.ud.email)
     }
   }
 
   fetch_user_details(user_email:any)
   {
-    console.log(user_email)
+    let keymail = user_email.replace(".", "");
 
-    let keymail = user_email.replace(".","");
-    let userRef = ref(this.db,'/users/'+keymail);
+    this.ud.fetch_userdata_with_keymail(keymail)
+    this.logged_in_user = this.ud
 
-    get(userRef).then((user_detail)=>{
-                        if (user_detail.exists())
-                        {
-                          this.logged_in_user = user_detail.val()
-                          this.ud.UserData = user_detail.val()
-                        }
-                        else
-                        {
-                          console.log("No Data Available");
-                        }
-                        }).catch((error) => {console.error(error)});
+    // let userRef = ref(this.db, '/users/' + keymail);
+
+    // get(userRef).then((user_detail)=>{
+    //                     if (user_detail.exists())
+    //                     {
+    //                       //console.log("user_detail.val():", user_detail.val())
+    //                       this.logged_in_user = user_detail.val()
+    //                       const data = user_detail.val()                          
+    //                       this.ud.email = data.email
+    //                       this.ud.name = data.name
+    //                       this.ud.username = data.username
+    //                     }
+    //                     else
+    //                     {
+    //                       console.log("No Data Available");
+    //                     }
+    //                     }).catch((error) => {console.error(error)});
   }
 
 
@@ -73,15 +82,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  // fetchUsername(em : string) {
-  // const realdb = getDatabase(this.app)
-  // em = em.replace(".", "")
-  // const realRef = ref(realdb, '/users/' + em);
-  // onValue(realRef, (snapshot) => {
-  //   const data = snapshot.val();
-  //   this.username = data.username
-  // });
-// }
+  
 
 
 }

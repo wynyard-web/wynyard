@@ -38,7 +38,7 @@ export class LoginComponent  {
       //const user = userCredential.user;
       console.log(userCredential.user)
       console.log("LogedIn")
-      this.user_data_service.Useremail = loginEmail;
+      this.user_data_service.email = loginEmail;
       this.router.navigate(["/home"],{ queryParams: { email:loginEmail } })
     })
     .catch((error) => {

@@ -237,6 +237,24 @@ Profile component
   - Creating error while adding image url (calling it invalid)
   - So updating firestore without adding url
   - Works fine
-- Posrmetadata.ts
+- Postmetadata.ts
   - post_url datatype changed to string
   - Still getting invalid url error while updating data to firestore
+
+
+
+### Changes by Harshita (10/10/2022)
+- PostTasks Service 
+  - Resolved error of duplicate posts in post list component and therefore home component
+  - Added function to fetch metadata of posts from firestore but it's not working as per requirement
+- Classes
+  - Created new class FetchedPostData
+- FetchedPostData.ts
+  - Contains data of the post fetched from the database
+- Userdata Service
+ - Updated service class
+ - Fixed all the problems faced due to the changes
+- Home component
+  - User data was not being properly fetched
+  - Updated the function as required
+  - Now it fetches data as per requirement   

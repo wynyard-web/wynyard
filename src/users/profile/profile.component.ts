@@ -24,8 +24,8 @@ export class ProfileComponent implements OnInit {
   userName:any;
 
   ngOnInit() {
-    this.fullName = this.user_data_fetch.UserData.name;
-    this.userName = this.user_data_fetch.UserData.usernamme;
+    this.fullName = this.user_data_fetch.name;
+    this.userName = this.user_data_fetch.username;
   }
 
   showFiller = false;

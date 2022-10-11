@@ -7,6 +7,7 @@ export class Post_Metadata {
     post_url!:String    
     post:any
     fileType:any
+    
     // date!:Date
     // time!:Time
 
