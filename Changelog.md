@@ -160,7 +160,8 @@ Profile component
 - Profile Component
   - Fetching data using get() method instead of onValue() method  
 - Note for Omkar: Modify the get() for login and generate a service asap.   
-<<<<<<< HEAD
+
+<hr>
   
 ### Changes by Omkar (04/10/2022)
 - App Routing Module
@@ -188,6 +189,8 @@ Profile component
 - AddPost Component
   - Used 'location' to go back to previous page instead of navigation
 - Other small html and css changes      
+
+<hr>
 
 ### Changes by Harshita (08/10/2022)
 - AddPost Component
@@ -228,7 +231,7 @@ Profile component
   - fetched the list of url of all the posts
   - displayed all the posts in PostList html    
   
-
+<hr>
 
 ### Changes by Harshita (10/10/2022)
 - PostTasks Service
@@ -241,7 +244,7 @@ Profile component
   - post_url datatype changed to string
   - Still getting invalid url error while updating data to firestore
 
-
+<hr>
 
 ### Changes by Harshita (10/10/2022)
 - PostTasks Service 
@@ -258,3 +261,12 @@ Profile component
   - User data was not being properly fetched
   - Updated the function as required
   - Now it fetches data as per requirement   
+  
+<hr>
+
+### Changes by Omkar (11/10/2022)
+- PostTasks Service
+  - Fixed issue with metadata not being fetched
+  - Fixed import for firestore from compat
+  - Metadata Succesfully displayed on console using snapshot.doc.data()
+Note to Harshita :- Assign data from doc to a array if possible and access as per required

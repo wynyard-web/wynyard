@@ -1,11 +1,14 @@
+import { getDatabase } from 'firebase/database';
 import { Injectable } from '@angular/core';
 import { Post_Metadata } from 'src/Classes/post-metadata';
 import { UserDataService } from './user-data.service';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL, listAll, StorageReference } from "firebase/storage";
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
-import { getFirestore } from 'firebase/firestore';
-import {doc, getDoc, query, where,  getDocs, collection, addDoc} from 'firebase/firestore';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/firestore'
 
 import { FetchedPostData } from 'src/Classes/FetchedPostData';
 
@@ -16,52 +19,54 @@ import { FetchedPostData } from 'src/Classes/FetchedPostData';
 export class PostTasksService {
 
   constructor(private userdata:UserDataService,
-    
+
     ) { }
 
-  app = initializeApp(environment.firebase)  
+  app = initializeApp(environment.firebase)
 
   firebase_storage = getStorage(this.app)
 
   firebase_firestore_db = getFirestore(this.app)
 
-  
+  fbapp = firebase.initializeApp(environment.firebase)
+  fb_db = firebase.firestore()
+
   post_url_list:any = []
 
   fetched_post_data : FetchedPostData = new FetchedPostData()
     fetched_posts_list:any  = []
-  
+
 
   async save_metadata_of_post(current_post_data:Post_Metadata) {
     const keymail = this.userdata.email.replace(".", "")
-        
+
     try {
       const docRef = await addDoc(collection(this.firebase_firestore_db, "posts_metadata"), {
           caption: current_post_data.caption,
           name: current_post_data.name,
-          keymail: keymail,          
+          keymail: keymail,
           fileType:current_post_data.fileType,
-          
+
       });
-      
+
       alert("Data uploaded in firestore successfully")
     } catch (e) {
       console.error("Error adding document: ", e);
     }
 
-    
+
   }
 
-  
+
 
   Upload_post(current_post_data:Post_Metadata) {
-    
+
     const keymail = this.userdata.email.replace(".", "")
     console.log(keymail)
-    const path = 'posts/' + keymail + "/" + current_post_data.name 
+    const path = 'posts/' + keymail + "/" + current_post_data.name
     console.log(path)
     const firebase_storageRef = ref(this.firebase_storage, path)
-    
+
     const uploadTask = uploadBytesResumable(firebase_storageRef, current_post_data.post);
 
   // Listen for state changes, errors, and completion of the upload.
@@ -78,7 +83,7 @@ export class PostTasksService {
         console.log('Upload is running');
         break;
     }
-  }, 
+  },
   (error) => {
     // A full list of error codes is available at
     // https://firebase.google.com/docs/storage/web/handle-errors
@@ -99,7 +104,7 @@ export class PostTasksService {
         alert("Storage Unknown")
         break;
     }
-  }, 
+  },
   () => {
     // Upload completed successfully, now we can get the download URL
     alert("Post Uploaded successfully")
@@ -130,11 +135,11 @@ export class PostTasksService {
     res.prefixes.forEach((folderRef) => {
       // All the prefixes under listRef.
       // You may call listAll() recursively on them.
-      post_ref = ref(post_listRef, folderRef.name)  
-      this.fetched_post_data.keymail = folderRef.name       
-     
+      post_ref = ref(post_listRef, folderRef.name)
+      this.fetched_post_data.keymail = folderRef.name
+
       listAll(post_ref).then((res)=> {
-          res.items.forEach((post) =>{          
+          res.items.forEach((post) =>{
           //console.log("post:", post.fullPath)
           this.fetched_post_data.post_name = post.name
           // console.log("Post_name:", post.name)
@@ -148,37 +153,26 @@ export class PostTasksService {
       }).catch((error)=>{
         console.log("error in post_ref: ", error)
       });
-      
-           
-      
-    });
-    
 
-    
+
+    });
+
+
+
   }).catch((error) => {
     // Uh-oh, an error occurred!
     console.log("error occured in service while loading posts")
   });
 
-  const docRef = doc(this.firebase_firestore_db, "posts_metadata");
-    // const docSnap = await getDoc(docRef);
-    // if (docSnap.exists()) {
-    //   console.log("Document data:", docSnap.data());
-    // } else {
-    //   // doc.data() will be undefined in this case
-    //   console.log("No such document!");
-    // }
 
-    const q = query(collection(this.firebase_firestore_db, "posts_metadata"), where("name", "==", true));
-
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, " => ", doc.data());
-    });
+  let metadata_ref = this.fb_db.collection("posts_metadata");
+  let snapshot = await metadata_ref.get();
+  snapshot.forEach(doc => {
+    console.log(doc.id,"=>",doc.data());
+  });
 
   }
 
-  
+
 
 }
