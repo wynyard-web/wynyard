@@ -6,7 +6,7 @@ import { EditProfileDialogComponent } from '../EditProfileDialog/EditProfileDial
 import { getDatabase, ref, onValue, get } from "firebase/database";
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
-
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +17,10 @@ export class ProfileComponent implements OnInit {
 
 
 
-  constructor(public dialog: MatDialog, private router: Router, private user_data_fetch:UserDataService) {}
+  constructor(public dialog: MatDialog, 
+    private router: Router, 
+    private user_data_fetch:UserDataService,
+    private location:Location) {}
 
 
   fullName:any;
@@ -48,32 +51,10 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  //db = getDatabase(this.app);
-
-
-  // fetch_user_data():any {
-  //   const keymail = this.email.replace(".","")
-  //   let userRef = ref(this.db, '/users/' + keymail);
-
-  //   // onValue() = It is useful if there is a change in the data
-  //   // get() = It is used to get just the data from database
-
-  //   get(userRef).then((snapshot) => {
-  //     if (snapshot.exists()) {
-  //       console.log("get:",snapshot.val());
-  //       const data = snapshot.val();
-  //       this.fullName = data.name
-  //       this.username = data.username
-  //     } else {
-  //       console.log("No data available");
-  //     }
-  //   }).catch((error) => {
-  //     console.error(error);
-  //   });
-
-
-  // }
-
+  go_back() {
+    // this.router.navigate(['/profile'])
+    this.location.back()
+  }
 
 
 

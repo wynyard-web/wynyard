@@ -46,9 +46,18 @@ img {
   padding: 30px;
 }
 
-.mat_icon_button {
+.mat-icon-left-arrow {
   background-color: rgba(255, 255, 255, 0);
   left: 0.1px;
+  position:absolute;
+  cursor: pointer;
+
+  border:none;
+}
+
+.mat_icon_button {
+  background-color: rgba(255, 255, 255, 0);
+  left: 3px;
   position:absolute;
   cursor: pointer;
 

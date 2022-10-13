@@ -11,6 +11,7 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 
 import { FetchedPostData } from 'src/Classes/FetchedPostData';
+import { MatCardAvatar } from '@angular/material/card';
 
 
 @Injectable({
@@ -21,6 +22,10 @@ export class PostTasksService {
   constructor(private userdata:UserDataService,
 
     ) { }
+
+    ngOnInit() {
+      
+    }
 
   app = initializeApp(environment.firebase)
 
@@ -33,20 +38,24 @@ export class PostTasksService {
 
   post_url_list:any = []
 
+  current_post_url:string = ""
+
   fetched_post_data : FetchedPostData = new FetchedPostData()
     fetched_posts_list:any  = []
 
 
-  async save_metadata_of_post(current_post_data:Post_Metadata) {
+  async save_metadata_of_post(current_post_data:Post_Metadata, imageUrl:string) {
     const keymail = this.userdata.email.replace(".", "")
-
+    //console.log(imageUrl)
     try {
       const docRef = await addDoc(collection(this.firebase_firestore_db, "posts_metadata"), {
           caption: current_post_data.caption,
           name: current_post_data.name,
           keymail: keymail,
           fileType:current_post_data.fileType,
-
+          username:current_post_data.username,
+          url:imageUrl          
+          
       });
 
       alert("Data uploaded in firestore successfully")
@@ -59,7 +68,7 @@ export class PostTasksService {
 
 
 
-  Upload_post(current_post_data:Post_Metadata) {
+   Upload_post(current_post_data:Post_Metadata) {
 
     const keymail = this.userdata.email.replace(".", "")
     console.log(keymail)
@@ -108,13 +117,18 @@ export class PostTasksService {
   () => {
     // Upload completed successfully, now we can get the download URL
     alert("Post Uploaded successfully")
-    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+    getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+      this.current_post_url = downloadURL
+      console.log(this.current_post_url)
       current_post_data.post_url = downloadURL
-      console.log('File available at', downloadURL);
+      console.log('File available at', downloadURL);      
+      this.save_metadata_of_post(current_post_data, downloadURL)
+      
     });
   }
 );
-  return current_post_data;
+  
+    
   }
 
   delete_post() {}
@@ -122,54 +136,57 @@ export class PostTasksService {
   get_user_post() {}
 
   async get_all_posts() {
-    // Create a reference under which you want to list
-    const post_listRef = ref(this.firebase_storage, 'posts/')
-    console.log("post_listRef:" + post_listRef)
+//     // Create a reference under which you want to list
+//     const post_listRef = ref(this.firebase_storage, 'posts/')
+//     console.log("post_listRef:" + post_listRef)
 
-    let post_ref:StorageReference
-// Find all the prefixes and items.
-    this.fetched_posts_list = []
-    this.post_url_list = []
-  listAll(post_listRef)
-  .then((res) => {
-    res.prefixes.forEach((folderRef) => {
-      // All the prefixes under listRef.
-      // You may call listAll() recursively on them.
-      post_ref = ref(post_listRef, folderRef.name)
-      this.fetched_post_data.keymail = folderRef.name
+//     let post_ref:StorageReference
+// // Find all the prefixes and items.
+//     this.fetched_posts_list = []
+//     this.post_url_list = []
+//   listAll(post_listRef)
+//   .then((res) => {
+//     res.prefixes.forEach((folderRef) => {
+//       // All the prefixes under listRef.
+//       // You may call listAll() recursively on them.
+//       post_ref = ref(post_listRef, folderRef.name)
+//       this.fetched_post_data.keymail = folderRef.name
 
-      listAll(post_ref).then((res)=> {
-          res.items.forEach((post) =>{
-          //console.log("post:", post.fullPath)
-          this.fetched_post_data.post_name = post.name
-          // console.log("Post_name:", post.name)
-          getDownloadURL(post).then((url)=>{
-            this.fetched_post_data.post_url = url
-            this.post_url_list.push(url)
-            //console.log("url: ", url)
-          })
-          this.fetched_posts_list.push(this.fetched_post_data)
-          })
-      }).catch((error)=>{
-        console.log("error in post_ref: ", error)
-      });
-
-
-    });
+//       listAll(post_ref).then((res)=> {
+//           res.items.forEach((post) =>{
+//           //console.log("post:", post.fullPath)
+//           this.fetched_post_data.post_name = post.name
+//           // console.log("Post_name:", post.name)
+//           getDownloadURL(post).then((url)=>{
+//             this.fetched_post_data.post_url = url
+//             this.post_url_list.push(url)
+//             //console.log("url: ", url)
+//           })
+//           this.fetched_posts_list.push(this.fetched_post_data)
+//           })
+//       }).catch((error)=>{
+//         console.log("error in post_ref: ", error)
+//       });
 
 
-
-  }).catch((error) => {
-    // Uh-oh, an error occurred!
-    console.log("error occured in service while loading posts")
-  });
+//     });
 
 
-  let metadata_ref = this.fb_db.collection("posts_metadata");
-  let snapshot = await metadata_ref.get();
-  snapshot.forEach(doc => {
-    console.log(doc.id,"=>",doc.data());
-  });
+
+//   }).catch((error) => {
+//     // Uh-oh, an error occurred!
+//     console.log("error occured in service while loading posts")
+//   });
+
+  //   let metadata:any = []
+  // let metadata_ref = this.fb_db.collection("posts_metadata");
+  // let snapshot = await metadata_ref.get();
+  // snapshot.forEach(doc => {
+  //   metadata.push(doc.data())
+  //   console.log(doc.id,"=>",doc.data());
+  // });
+  // //console.log(metadata[0].url)
+  // return metadata
 
   }
 

@@ -12,7 +12,7 @@ export class UserDataService {
 
   // UserData: any;
 
-  email!: any
+  email: any = ""
   name!: any
   username!: any
   

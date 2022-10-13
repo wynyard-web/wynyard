@@ -270,3 +270,25 @@ Profile component
   - Fixed import for firestore from compat
   - Metadata Succesfully displayed on console using snapshot.doc.data()
 Note to Harshita :- Assign data from doc to a array if possible and access as per required
+
+<hr>
+
+### Changes by Omkar and Harshita (12/10/2022)
+- Added custom favicon for the website
+
+<hr>
+
+### Changes by Harshita (12/10/2022)
+- PostTasks Service
+  - Removed get all posts function because fetched data was undefined when returned.
+- PostList component
+  - Added get all posts function in this component
+  - Username and caption fetched successfully and are displayed with the post  
+- Profile Component
+  - Added icon to go to previous page
+  - works fine
+  - position not correct
+- Task for Omkar
+  - Add confirmation dailog before uploading the post 
+  - Position the icon to go back in the profile component
+  - After uploading the post, the data in the add post component should become empty
