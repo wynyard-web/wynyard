@@ -292,3 +292,9 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
   - Add confirmation dailog before uploading the post 
   - Position the icon to go back in the profile component
   - After uploading the post, the data in the add post component should become empty
+
+ <hr>
+
+### Changes by Harshita (13/10/2022)
+- Post List component
+  - Loading video type file -> works fine!  
