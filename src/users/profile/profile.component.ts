@@ -7,6 +7,9 @@ import { getDatabase, ref, onValue, get } from "firebase/database";
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
 import {Location} from '@angular/common';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/firestore'
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +22,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(public dialog: MatDialog, 
     private router: Router, 
-    private user_data_fetch:UserDataService,
+    private user_data_service:UserDataService,
     private location:Location) {}
 
 
@@ -27,8 +30,9 @@ export class ProfileComponent implements OnInit {
   userName:any;
 
   ngOnInit() {
-    this.fullName = this.user_data_fetch.name;
-    this.userName = this.user_data_fetch.username;
+    this.fullName = this.user_data_service.name;
+    this.userName = this.user_data_service.username;
+    this.user_posts()
   }
 
   showFiller = false;
@@ -54,6 +58,24 @@ export class ProfileComponent implements OnInit {
   go_back() {
     // this.router.navigate(['/profile'])
     this.location.back()
+  }
+
+  metadata:any = []
+
+  async user_posts() {
+    const fbapp = firebase.initializeApp(environment.firebase)
+    const fb_db = firebase.firestore()
+    const keymail = this.user_data_service.email.replace(".","")
+    this.metadata = []
+  let metadata_ref = fb_db.collection("posts_metadata");
+  let snapshot = await metadata_ref.get();
+  snapshot.forEach(doc => {
+    if (doc.data()['keymail'] == keymail) {
+      this.metadata.push(doc.data())
+      //console.log(doc.id,"=>",doc.data());
+    }
+    
+  });
   }
 
 

@@ -17,9 +17,9 @@ export class Post_listComponent implements OnInit {
   constructor(private post_service:PostTasksService) { }
   
   ngOnInit() {
-    this.get_all_posts()
+    this.all_posts()
     // let all_posts_data:any = []
-    // all_posts_data = this.post_service.get_all_posts()
+    // all_posts_data = this.post_service.all_posts()
     // console.log(all_posts_data)
     
     // this.all_post_url_List = []
@@ -36,15 +36,15 @@ export class Post_listComponent implements OnInit {
 
   metadata:any = []
 
-  async get_all_posts() {
+  async all_posts() {
     const fbapp = firebase.initializeApp(environment.firebase)
     const fb_db = firebase.firestore()
-    
+    this.metadata = []
   let metadata_ref = fb_db.collection("posts_metadata");
   let snapshot = await metadata_ref.get();
   snapshot.forEach(doc => {
     this.metadata.push(doc.data())
-    console.log(doc.id,"=>",doc.data());
+    // console.log(doc.id,"=>",doc.data());
   });
   //console.log(this.metadata[0].url)
   //return metadata

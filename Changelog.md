@@ -307,3 +307,12 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
   - Added a simple home button (convert it to a logo button)
   - pending conversion to navbar
   - pending logout
+
+<hr>
+
+### Changes by Harshita
+- PostList component
+  - Updated some functions name as per the rules of clean coding
+- Profile component
+  - Created a function user_posts to get all posts with the metadata of the loged in user
+  - Posts are diaplayed below the title posts in the profile page  
