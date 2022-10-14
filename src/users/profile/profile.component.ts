@@ -3,13 +3,14 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog} from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EditProfileDialogComponent } from '../EditProfileDialog/EditProfileDialog.component';
-import { getDatabase, ref, onValue, get } from "firebase/database";
+
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
 import {Location} from '@angular/common';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, doc, deleteDoc } from 'firebase/firestore';
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
+import { getStorage, ref, deleteObject } from "firebase/storage";
 
 @Component({
   selector: 'app-profile',
@@ -41,7 +42,7 @@ export class ProfileComponent implements OnInit {
 
   // childKey:any
 
-
+  fbapp = firebase.initializeApp(environment.firebase)
 
   openDialog(): void {
     this.dialog.open(EditProfileDialogComponent, {
@@ -62,15 +63,18 @@ export class ProfileComponent implements OnInit {
 
   metadata:any = []
 
+  fb_db = firebase.firestore()
+  keymail = this.user_data_service.email.replace(".","")
+
   async user_posts() {
-    const fbapp = firebase.initializeApp(environment.firebase)
-    const fb_db = firebase.firestore()
-    const keymail = this.user_data_service.email.replace(".","")
+    
+    // const fb_db = firebase.firestore()
+    // const keymail = this.user_data_service.email.replace(".","")
     this.metadata = []
-  let metadata_ref = fb_db.collection("posts_metadata");
+  let metadata_ref = this.fb_db.collection("posts_metadata");
   let snapshot = await metadata_ref.get();
   snapshot.forEach(doc => {
-    if (doc.data()['keymail'] == keymail) {
+    if (doc.data()['keymail'] == this.keymail) {
       this.metadata.push(doc.data())
       //console.log(doc.id,"=>",doc.data());
     }
@@ -78,6 +82,35 @@ export class ProfileComponent implements OnInit {
   });
   }
 
+
+  async delete_post(name:any) {
+    const storage = getStorage();
+    
+    // Create a reference to the file to delete
+    const postRef = ref(storage, 'posts/' + this.keymail + '/' + name);
+
+    // Delete the file from storage
+    deleteObject(postRef).then(() => {
+      // File deleted successfully
+      alert("post deleted successfully")
+    }).catch((error) => {
+    // Uh-oh, an error occurred!
+    });
+
+    // Delete post metadata from firestore
+    const fb_db = firebase.firestore()
+    let metadata_ref = this.fb_db.collection("posts_metadata");
+    let snapshot = await metadata_ref.get();
+    snapshot.forEach(async doc => {
+      if (doc.data()['keymail'] == this.keymail && doc.data()['name'] == name) {
+        //await deleteDoc(doc(fb_db, "posts_metadata", doc.id));
+        doc.ref.delete()
+        alert("Metadata deleted successfully")
+      }
+    
+    });
+
+  }
 
 
 }

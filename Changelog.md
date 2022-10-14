@@ -310,9 +310,22 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
 
 <hr>
 
-### Changes by Harshita
+### Changes by Harshita 
 - PostList component
   - Updated some functions name as per the rules of clean coding
 - Profile component
   - Created a function user_posts to get all posts with the metadata of the loged in user
   - Posts are diaplayed below the title posts in the profile page  
+
+<hr>
+
+### Changes by Harshita (14/10/2022)
+- Profile Component
+  - Implemented the function delete_post to delete the post of a loged in user
+    - It deletes image or video from firebase storage
+    - It also deletes the metadata from firebase firestore
+  - Problem with the page reloading
+    - After reloading the page user is loged out
+    - Changes are not seen immediately after deleting the post
+- Task for Omkar
+  - Try to resolve the above mentioned problem
