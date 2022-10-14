@@ -298,3 +298,12 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
 ### Changes by Harshita (13/10/2022)
 - Post List component
   - Loading video type file -> works fine!  
+
+### Changes by Omkar (14/10/2022)
+- Main index
+  - called header and footer before and after router outlet respectively
+  - pending css updates to make it aesthetic
+- Header Component
+  - Added a simple home button (convert it to a logo button)
+  - pending conversion to navbar
+  - pending logout

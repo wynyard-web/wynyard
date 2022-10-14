@@ -1,7 +1,7 @@
 {
   "hosting": {
     "target": "wynyard",
-    "public": "dist/wynyard",
+    "public": "dist/",
     "ignore": [
       "**/.*"
     ],
