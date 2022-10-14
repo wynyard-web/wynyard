@@ -12,6 +12,7 @@ import 'firebase/compat/firestore'
 
 import { FetchedPostData } from 'src/Classes/FetchedPostData';
 import { MatCardAvatar } from '@angular/material/card';
+import { Subject } from 'rxjs';
 
 
 @Injectable({
@@ -19,12 +20,19 @@ import { MatCardAvatar } from '@angular/material/card';
 })
 export class PostTasksService {
 
+  private emitChangeSource = new Subject<number>();
+  changeEmitted$ = this.emitChangeSource.asObservable();
+
+  emitChange(change: any) {
+    this.emitChangeSource.next(change);
+  }
+
   constructor(private userdata:UserDataService,
 
     ) { }
 
     ngOnInit() {
-      
+
     }
 
   app = initializeApp(environment.firebase)
@@ -54,8 +62,8 @@ export class PostTasksService {
           keymail: keymail,
           fileType:current_post_data.fileType,
           username:current_post_data.username,
-          url:imageUrl          
-          
+          url:imageUrl
+
       });
 
       alert("Data uploaded in firestore successfully")
@@ -67,6 +75,7 @@ export class PostTasksService {
   }
 
 
+  progress:number=0;
 
    Upload_post(current_post_data:Post_Metadata) {
 
@@ -82,8 +91,9 @@ export class PostTasksService {
   uploadTask.on('state_changed',
     (snapshot) => {
     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    console.log('Upload is ' + progress + '% done');
+    this.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    this.emitChange(this.progress);
+    console.log('Upload is ' + this.progress + '% done');
     switch (snapshot.state) {
       case 'paused':
         console.log('Upload is paused');
@@ -121,14 +131,14 @@ export class PostTasksService {
       this.current_post_url = downloadURL
       console.log(this.current_post_url)
       current_post_data.post_url = downloadURL
-      console.log('File available at', downloadURL);      
+      console.log('File available at', downloadURL);
       this.save_metadata_of_post(current_post_data, downloadURL)
-      
+
     });
   }
 );
-  
-    
+
+
   }
 
   delete_post() {}

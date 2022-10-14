@@ -14,18 +14,18 @@ import { UserDataService } from 'src/Services/user-data.service';
 })
 export class AddPostComponent implements OnInit {
 
-  constructor(private router: Router, 
-    private location:Location, 
+  constructor(private router: Router,
+    private location:Location,
     private post_service:PostTasksService,
     private user_data:UserDataService) { }
 
   ngOnInit(): void {
   }
 
-  
+
 
   // ! = non-null value assertion
-  // ? = optional  
+  // ? = optional
   current_post_data!:Post_Metadata
   url:any = 'assets/images/prj_logo_colour.png'
   format:any
@@ -55,21 +55,23 @@ export class AddPostComponent implements OnInit {
       this.current_post_data.fileType = this.format
       reader.onload = (event) => { // called once readAsDataURL is completed
         this.url = event.target!.result
-        
-               
+
+
       }
-      
+
       //this.post_service.Upload_post(this.current_post_data)
       //this.post_service.save_metadata_of_post(this.current_post_data)
     }
   }
+
+  progress:number=0;
 
   upload_post(caption:any) {
     this.current_post_data.caption = caption
     this.current_post_data.username = this.user_data.username
     //console.log("current_post_data before upload:", this.current_post_data)
     this.post_service.Upload_post(this.current_post_data)
-    
+    this.post_service.changeEmitted$.subscribe(data=>this.progress=data)
     //console.log("current_post_data after upload:", this.current_post_data)
     //this.post_service.save_metadata_of_post(this.current_post_data)
     //console.log("current_post_data after updating firestore:", this.current_post_data)

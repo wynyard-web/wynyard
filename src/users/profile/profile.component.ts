@@ -21,19 +21,21 @@ export class ProfileComponent implements OnInit {
 
 
 
-  constructor(public dialog: MatDialog, 
-    private router: Router, 
+  constructor(public dialog: MatDialog,
+    private router: Router,
     private user_data_service:UserDataService,
     private location:Location) {}
 
 
   fullName:any;
   userName:any;
+  bio:any;
 
   ngOnInit() {
     this.fullName = this.user_data_service.name;
     this.userName = this.user_data_service.username;
     this.user_posts()
+    this.bio = this.user_data_service.fetch_userdata_with_keymail(this.keymail).bio
   }
 
   showFiller = false;
@@ -46,8 +48,8 @@ export class ProfileComponent implements OnInit {
 
   openDialog(): void {
     this.dialog.open(EditProfileDialogComponent, {
-      width: '250px'
-
+      width: '250px',
+      data : this.user_data_service.fetch_userdata_with_keymail(this.keymail)
     });
   }
 
@@ -67,7 +69,7 @@ export class ProfileComponent implements OnInit {
   keymail = this.user_data_service.email.replace(".","")
 
   async user_posts() {
-    
+
     // const fb_db = firebase.firestore()
     // const keymail = this.user_data_service.email.replace(".","")
     this.metadata = []
@@ -78,14 +80,14 @@ export class ProfileComponent implements OnInit {
       this.metadata.push(doc.data())
       //console.log(doc.id,"=>",doc.data());
     }
-    
+
   });
   }
 
 
   async delete_post(name:any) {
     const storage = getStorage();
-    
+
     // Create a reference to the file to delete
     const postRef = ref(storage, 'posts/' + this.keymail + '/' + name);
 
@@ -107,7 +109,7 @@ export class ProfileComponent implements OnInit {
         doc.ref.delete()
         alert("Metadata deleted successfully")
       }
-    
+
     });
 
   }

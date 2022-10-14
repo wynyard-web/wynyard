@@ -306,7 +306,7 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
   - called header and footer before and after router outlet respectively
   - pending css updates to make it aesthetic
 - Header Component
-  - Added a simple home button (convert it to a logo button)
+  - Added a simple home button (*convert it to a logo button*)
   - pending conversion to navbar
   - pending logout
 
@@ -330,4 +330,29 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
     - After reloading the page user is loged out
     - Changes are not seen immediately after deleting the post
 - Task for Omkar
-  - Try to resolve the above mentioned problem
+  - Try to resolve the above mentioned problem (**tried and will be tried at a later date**)
+
+<hr>
+
+### Changes by Omkar (14/10/2022)
+#### Major Overhaul
+- Profile Component
+  - Prepped component to accept bio
+  - calling the edit dilog with the entire userdata
+- EditProfile Dialog
+  - Injecting data recieved from the profile component
+  - calling function setafteredit()
+  - used [value] in html and some minor spelling fixes 
+- User Data Service
+  - it preps the userdatamodel for bio with an empty bio (*done to avoid messing registration code*)
+  - the called function basically does a few things
+    - it updates the realtime document with keymail
+    - if username is changed - chat and metadata have to be modified too
+      - modifychat:- changes username for every chat posted by the user (*will have to add same functionality for comments*)
+      - modifypost:- channges username in the postmetadata collection
+- Post Task service
+  - emit the progress amount for the upload
+- Add Post
+  - subscribes to the emitted progress amount
+  - the progress value is used to animate a input slider (would look better with a matslider)
+*Note* :- Try to get code from post list back in the post service 

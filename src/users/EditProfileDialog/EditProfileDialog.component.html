@@ -1,11 +1,11 @@
 <h1 mat-dialog-title>User Details</h1>
 <div mat-dialog-content>
-  Full Name: <input #fullName >
-  Username: <input #username>
-  User Bio: <textarea #bio  ></textarea>
+  Full Name: <input [value]="userdata.name" #fullName >
+  Username: <input [value]="userdata.username" #username><br>
+  User Bio: <textarea #bio [value]="userdata.bio" ></textarea>
 </div>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancle</button>
-  <button mat-button mat-dialog-close cdkFocusInitial>Save</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="edit_user_details(fullName.value,username.value,bio.value)">Save</button>
 </div>
 

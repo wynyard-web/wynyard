@@ -49,7 +49,7 @@
         <br>
         <br>
       <div>
-        User Bio
+        User Bio : {{bio}}
       </div>
     </mat-card>
       </div>
@@ -62,9 +62,9 @@
     <h3>
         Posts
     </h3>
-      
+
 <div class="main_scroll">
-  
+
   <ul *ngFor="let post of metadata" class="main_scroll">
     <li>
       <mat-card class="example-card">
@@ -76,9 +76,9 @@
               <mat-icon style="border: none;">more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" style="border:none;">
-              
+
                 <mat-icon style="cursor:pointer;" (click)="delete_post(post.name)">delete</mat-icon>
-                             
+
             </mat-menu>
           </div>
           <mat-card-subtitle></mat-card-subtitle>
