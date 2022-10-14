@@ -293,11 +293,13 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
   - Position the icon to go back in the profile component
   - After uploading the post, the data in the add post component should become empty
 
- <hr>
+<hr>
 
 ### Changes by Harshita (13/10/2022)
 - Post List component
   - Loading video type file -> works fine!  
+
+<hr>  
 
 ### Changes by Omkar (14/10/2022)
 - Main index
@@ -310,7 +312,7 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
 
 <hr>
 
-### Changes by Harshita 
+### Changes by Harshita (14/10/2022)
 - PostList component
   - Updated some functions name as per the rules of clean coding
 - Profile component
