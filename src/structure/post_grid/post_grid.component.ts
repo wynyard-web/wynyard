@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-post_grid',
@@ -9,6 +9,7 @@ export class Post_gridComponent implements OnInit {
 
   constructor() { }
 
+  @Input() post_list:any;
   ngOnInit() {
   }
 

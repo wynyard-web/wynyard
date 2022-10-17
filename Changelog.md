@@ -356,3 +356,25 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
   - subscribes to the emitted progress amount
   - the progress value is used to animate a input slider (would look better with a matslider)
 *Note* :- Try to get code from post list back in the post service 
+
+<hr>
+
+### Changes by Omkar (17/10/2022)
+- Profile Component
+  - Profile component calls post grid component instead of displaying statically
+- Post List Component
+  - Post list css modified to center the cards 
+  - Post card now called to individually instantiate a component as per requirement
+  - simple hover css applied
+- Post Grid Component
+  - using matgrid module to display all posts in a dynamic grid of 3 columns
+  - calls individual thumnail element using ngfor
+- Post Thumbnail Component
+  - simple thumbnail for every post user has mad
+  - fixed width of 500px, fixed height 300px
+  - simple hover effect 
+  - hover to play video
+- Post Card Component
+  - simple matcard to display individula posts
+  - fixed size for image and videos
+  - hover to play videos

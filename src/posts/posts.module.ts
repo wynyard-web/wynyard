@@ -5,8 +5,11 @@ import { PostThumbnailComponent } from './post-thumbnail/post-thumbnail.componen
 import { AddPostComponent } from './add-post/add-post.component';
 
 // Angular Material
-import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -17,11 +20,15 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatSidenavModule
   ],
   exports: [
-    AddPostComponent
+    AddPostComponent,
+    PostCardComponent,
+    PostThumbnailComponent
   ]
-  
+
 })
 export class PostsModule { }

@@ -1,0 +1,15 @@
+img
+{
+  width: 500px;
+  height: 300px;
+}
+video
+{
+  width: 500px;
+  height: 300px;
+}
+
+div:hover
+{
+  box-shadow: 5px 15px 10px #888888;
+}

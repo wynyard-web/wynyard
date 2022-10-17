@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-post-thumbnail',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class PostThumbnailComponent implements OnInit {
 
   constructor() { }
+
+  @Input() post_details:any;
 
   ngOnInit(): void {
   }

@@ -1,3 +1,4 @@
+import { PostsModule } from 'src/posts/posts.module';
 import { RouterModule } from '@angular/router';
 import { ConfirmDialogComponent } from './ConfirmDialog/ConfirmDialog.component';
 import { GlobalChatModule } from './../global-chat/global-chat.module';
@@ -14,8 +15,9 @@ import { Post_listComponent } from './post_list/post_list.component';
 
 // Material
 import {MatCardModule} from '@angular/material/card';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -31,9 +33,10 @@ import {MatIconModule} from '@angular/material/icon';
     RouterModule,
     GlobalChatModule,
     MatIconModule,
-    MatSidenavModule,
     GlobalChatModule,
-    MatCardModule
+    MatCardModule,
+    PostsModule,
+    MatGridListModule
   ],
   exports: [
     HomeComponent,

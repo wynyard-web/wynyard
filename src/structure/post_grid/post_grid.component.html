@@ -1,3 +1,5 @@
-<p>
-  post_grid works!
-</p>
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let post of post_list">
+      <app-post-thumbnail [post_details]="post"></app-post-thumbnail>
+  </mat-grid-tile>
+</mat-grid-list>
