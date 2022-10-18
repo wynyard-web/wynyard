@@ -6,7 +6,7 @@
           <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image src={{post_details.url}} *ngIf="post_details.fileType==='image'" alt="post_details by {{post_details.username}}">
-        <video src={{post_details.url}} *ngIf="post_details.fileType==='video'" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>
+        <video src={{post_details.url}} *ngIf="post_details.fileType==='video'" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
         <mat-card-content>
           {{post_details.caption}}
         </mat-card-content>
