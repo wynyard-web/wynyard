@@ -1,14 +1,16 @@
+import { Router } from '@angular/router';
 import { getDatabase } from 'firebase/database';
 import { Injectable } from '@angular/core';
 import { Post_Metadata } from 'src/Classes/post-metadata';
 import { UserDataService } from './user-data.service';
-import { getStorage, ref, uploadBytesResumable, getDownloadURL, listAll, StorageReference } from "firebase/storage";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL, listAll, StorageReference, deleteObject } from "firebase/storage";
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
+
 
 import { FetchedPostData } from 'src/Classes/FetchedPostData';
 import { MatCardAvatar } from '@angular/material/card';
@@ -28,7 +30,7 @@ export class PostTasksService {
   }
 
   constructor(private userdata:UserDataService,
-
+            private router:Router
     ) { }
 
     ngOnInit() {
@@ -67,6 +69,7 @@ export class PostTasksService {
       });
 
       alert("Data uploaded in firestore successfully")
+      this.router.navigateByUrl("/")
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -126,7 +129,6 @@ export class PostTasksService {
   },
   () => {
     // Upload completed successfully, now we can get the download URL
-    alert("Post Uploaded successfully")
     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
       this.current_post_url = downloadURL
       console.log(this.current_post_url)
@@ -141,7 +143,36 @@ export class PostTasksService {
 
   }
 
-  delete_post() {}
+  async delete_post(keymail:string,name:string)
+  {
+    const storage = getStorage();
+
+    // Create a reference to the file to delete
+    const postRef = ref(storage, 'posts/' + keymail + '/' + name);
+
+    // Delete the file from storage
+    deleteObject(postRef).then(() => {
+      // File deleted successfully
+      alert("post deleted successfully")
+    }).catch((error) => {
+    // Uh-oh, an error occurred!
+    });
+
+    // Delete post metadata from firestore
+    const fb_db = firebase.firestore()
+    let metadata_ref = this.fb_db.collection("posts_metadata");
+    let snapshot = await metadata_ref.get();
+    snapshot.forEach(async doc => {
+      if (doc.data()['keymail'] == keymail && doc.data()['name'] == name) {
+        //await deleteDoc(doc(fb_db, "posts_metadata", doc.id));
+        doc.ref.delete()
+        alert("Metadata deleted successfully")
+      }
+
+    });
+
+
+  }
 
   get_user_post() {}
 

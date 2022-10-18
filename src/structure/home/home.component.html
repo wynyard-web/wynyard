@@ -1,16 +1,14 @@
 <div class="main-row">
-  <div class="prof_col" #settings>
-    <h1>Profile Setting Component</h1>
+  <div class="prof_col" #settings *ngIf="logged_in_user.username!=''">
     <button mat-raised-button style="cursor: pointer;" (click)="go_to_profile()" [disabled]="logged_in_user.username==''">Profile</button>
-  </div>
-  <div class="posts_col" #posts>
-    <h1>Main Component</h1>
     <br>
-  <app-post_list></app-post_list>
+    <button mat-raised-button style="cursor: pointer;" routerLink="add-post" [disabled]="logged_in_user.username==''">Add a Post</button>
   </div>
-  <div class="chat_col" #chats>
+  <div [ngClass]="{posts_col2: logged_in_user.username=='', posts_col1: logged_in_user.username!=''}" #posts>
+    <app-post_list></app-post_list>
+  </div>
+  <div class="chat_col" #chats *ngIf="logged_in_user.username!=''">
     <h1>Welcome {{logged_in_user.username}}</h1>
     <app-chat [username]="logged_in_user.username"></app-chat>
   </div>
-
 </div>

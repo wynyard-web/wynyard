@@ -17,6 +17,10 @@ import { Post_listComponent } from './post_list/post_list.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 @NgModule({
@@ -36,7 +40,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
     GlobalChatModule,
     MatCardModule,
     PostsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatMenuModule
   ],
   exports: [
     HomeComponent,

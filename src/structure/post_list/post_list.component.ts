@@ -1,3 +1,4 @@
+import { NavigationEnd, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PostTasksService } from 'src/Services/post-tasks.service';
 import { initializeApp } from 'firebase/app';
@@ -14,19 +15,12 @@ import 'firebase/compat/firestore'
 })
 export class Post_listComponent implements OnInit {
 
-  constructor(private post_service:PostTasksService) { }
-  
+  constructor(private post_service:PostTasksService, private router:Router) { }
+
   ngOnInit() {
     this.all_posts()
-    // let all_posts_data:any = []
-    // all_posts_data = this.post_service.all_posts()
-    // console.log(all_posts_data)
-    
-    // this.all_post_url_List = []
-    // this.all_post_url_List = this.post_service.post_url_list
   }
 
-  
   // all_post_url_List:[] = []
   // typeOfFile() {
   //   for (let url in this.post_service.post_url_list) {

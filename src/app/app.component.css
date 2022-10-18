@@ -1,0 +1,10 @@
+.maindiv
+{
+  height: 100%;
+  overflow-y:auto;
+}
+
+.maindiv::-webkit-scrollbar
+{
+  display: none;
+}

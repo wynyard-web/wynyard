@@ -34,8 +34,8 @@ import { PostsModule } from 'src/posts/posts.module';
 @NgModule({
   declarations: [
     AppComponent
-    
-   
+
+
   ],
   imports: [
     BrowserModule,

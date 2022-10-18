@@ -6,22 +6,25 @@
   float: left;
   height: 100vh;
   width: 10%;
-  border: 1px solid black;
 }
-.posts_col {
+.posts_col1 {
   float: left;
   height: 100vh;
   width: 60%;
-  border: 1px solid black;    
+}
+
+.posts_col2 {
+  float: left;
+  height: 100vh;
+  width: 100%;
 }
 
 .chat_col {
   float: left;
   height: 100vh;
   width: 30%;
-  border: 1px solid black;
-  
-  
+
+
 }
 
 .row:after {

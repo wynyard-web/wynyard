@@ -1,0 +1,29 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar
+{
+  background: linear-gradient(90deg, rgba(138,3,3,1) 51%, rgba(150,0,133,1) 87%);
+
+}
+
+.example-icon
+{
+  color: white;
+}
+span
+{
+  color: white;
+}
+
+
+.menubutton
+{
+  background: linear-gradient(90deg, rgba(150,0,133,1) 7%, rgba(138,3,3,1) 99%);
+  color: white;
+}
+
+mat-icon
+{
+  color: white;
+}

@@ -378,3 +378,29 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
   - simple matcard to display individula posts
   - fixed size for image and videos
   - hover to play videos
+
+### Changes by Omkar (18/10/2022)
+- Profile Component
+  - commented dead code
+  - sending keymail instead of entire data now
+  - Css changes to hide scrollbar
+- Post Grid
+  - fetch posts for user in the component instead of getting posts from profile
+- Home Component
+  - added ngif to not even display profile/chat if not logged in
+  - minor css fixes
+- Header Component
+  - Toollbar added
+  - New Logo with complete name
+  - basic routing
+  - minor css
+- Post Task service
+  - reroute to home after adding post
+  - *add functinoality for same after delete post*
+- Post Thumbnail
+  - deletinon call after confirmation
+  - simple html fixes
+  - added menu for view/delete - *view pending*
+- App Component
+  - simple html fixes
+  - css fixes for sepration of components
