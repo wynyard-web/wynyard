@@ -3,18 +3,27 @@ img
   width: 500px;
   height: 300px;
   margin: 5px;
-  border: 5px groove rgb(65, 0, 0);
   border-radius: 5px;
+  background-color: antiquewhite;
+  object-fit: contain;
 }
 video
 {
   width: 500px;
   height: 300px;
+  object-fit: contain;
 }
 
 mat-card-content
 {
   font-size: large;
+}
+
+.caption
+{
+  font-size: large;
+  word-wrap: break-word;
+  width: 300px;
 }
 
 mat-card
