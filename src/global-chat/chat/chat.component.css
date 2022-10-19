@@ -98,7 +98,7 @@
 .msgbox
 {
   overflow-y: scroll;
-  height: 80vh;
+  height: 60vh;
   display:flex;
   flex-direction:column-reverse;
   background-color: rgb(226, 90, 181);
@@ -111,7 +111,7 @@
 
 .example-container
 {
-  height: calc(100% - 47px);
+  height: 80vh;
   background-color: rgb(232, 137, 245);
   border-radius: 20px;
 }
