@@ -379,6 +379,8 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
   - fixed size for image and videos
   - hover to play videos
 
+<hr>
+
 ### Changes by Omkar (18/10/2022)
 - Profile Component
   - commented dead code
@@ -404,3 +406,28 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
 - App Component
   - simple html fixes
   - css fixes for sepration of components
+
+<hr>
+
+### Changes by Omkar (19/10/2022)
+- Home
+  - modified routerlink
+  - minor css
+- Header
+  - temporary logout with refresh
+- ProfilePostService
+  - simple service to fetch data
+- PostTask
+  - navigation after deletion
+- Post View Component
+  - single card view for opened post through grid
+  - added deletion code to card
+  - css fixes
+- Post Thumbnail
+  - Navigation for individual card
+  - minor css
+- Post Card 
+  - minor css fixes
+  - added username before caption
+- ChatComponent
+  - minor css

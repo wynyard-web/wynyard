@@ -1,0 +1,57 @@
+mat-card-title
+{
+  display: flex;
+  float: right;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-card
+{
+  width: 30%;
+  height: 60%;
+  background: linear-gradient(184deg, rgba(255,179,246,1) 7%, rgba(247,71,71,1) 100%);
+  box-shadow: 5px 10px 12px rgb(168, 21, 168);
+
+}
+
+.example-card:hover
+{
+  box-shadow: 5px 10px 12px rgb(168, 21, 65);
+}
+
+.maindiv
+{
+  padding: 20px;
+  float: none;
+  justify-content: center;
+  display: flex;
+  height: 100%;
+  background-color: rgb(230, 211, 211);
+}
+
+mat-card-content
+{
+  color: Navy;
+}
+
+b
+{
+  color: rgb(82, 0, 85);
+}
+
+img
+{
+  width: 500px;
+  height: 300px;
+  margin: 5px;
+  border: 5px groove rgb(65, 0, 0);
+  border-radius: 5px;
+}
+video
+{
+  width: 500px;
+  height: 300px;
+}

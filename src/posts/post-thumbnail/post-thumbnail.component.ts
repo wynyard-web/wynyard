@@ -1,5 +1,5 @@
+import { ProfilePostsService } from './../../Services/profile-posts.service';
 import { Router } from '@angular/router';
-import { PostTasksService } from 'src/Services/post-tasks.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -9,20 +9,20 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PostThumbnailComponent implements OnInit {
 
-  constructor(private postserv:PostTasksService, private router:Router) { }
+  constructor( private router:Router, private profserv:ProfilePostsService) { }
 
   @Input() post_details:any;
 
   ngOnInit(): void {
   }
 
-  ondel(keymail:string,name:string)
+
+
+  sendtoview()
   {
-    if(confirm("You Sure ? ").valueOf())
-    {
-      this.postserv.delete_post(keymail,name)
-      this.router.navigateByUrl('/profile',{skipLocationChange:true})
-    }
+
+    this.profserv.post_details = this.post_details
+    this.router.navigate(['ViewPost'])
   }
 
 }

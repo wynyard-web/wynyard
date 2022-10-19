@@ -1,3 +1,4 @@
+import { PostViewComponent } from './../posts/post-view/post-view.component';
 import { ProfileComponent } from './../users/profile/profile.component';
 import { HomeComponent } from './../structure/home/home.component';
 import { ChatComponent } from './../global-chat/chat/chat.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"register", component:RegisterComponent},
   {path:"profile", component:ProfileComponent},
-  {path:"add-post", component:AddPostComponent}
+  {path:"add-post", component:AddPostComponent},
+  {path:"ViewPost",component:PostViewComponent},
   ];
 
 @NgModule({

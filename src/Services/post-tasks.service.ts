@@ -167,6 +167,7 @@ export class PostTasksService {
         //await deleteDoc(doc(fb_db, "posts_metadata", doc.id));
         doc.ref.delete()
         alert("Metadata deleted successfully")
+        this.router.navigateByUrl('/profile')
       }
 
     });

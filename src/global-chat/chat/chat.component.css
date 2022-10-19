@@ -5,7 +5,7 @@
   width:fit-content;
   border: 1px solid black;
   padding: 10px;
-  background-color: rgb(162, 247, 218);
+  background-color: rgb(247, 232, 162);
   border-radius: 20px;
 
 }
@@ -15,7 +15,7 @@
   width: fit-content;
   border: 1px solid black;
   padding: 10px;
-  background-color: rgb(162, 247, 247);
+  background-color: rgb(233, 162, 247);
   border-radius: 20px
 
 }
@@ -44,11 +44,11 @@
 
 .s1 mat-icon
 {
-  display: block;  
-  color: red;  
+  display: block;
+  color: red;
   float: right;
   font-size: 120%;
-  
+
 }
 
 .s2 mat-icon
@@ -91,7 +91,7 @@
   text-align: center;
   size: large;
    position:fixed;
-   background-color:#c1e8ff;
+   background-color:#edc1ff;
    border-bottom: 1px solid black;
 }
 
@@ -101,7 +101,7 @@
   height: 80vh;
   display:flex;
   flex-direction:column-reverse;
-  background-color: rgb(131, 248, 232);
+  background-color: rgb(226, 90, 181);
 }
 
 ::-webkit-scrollbar
@@ -112,14 +112,14 @@
 .example-container
 {
   height: calc(100% - 47px);
-  background-color: rgb(137, 245, 245);
+  background-color: rgb(232, 137, 245);
   border-radius: 20px;
 }
 
 .chat_sidenav
 {
   width: 100%;
-  
+
 }
 
 .example-sidenav-content {

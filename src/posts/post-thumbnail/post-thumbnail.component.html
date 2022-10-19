@@ -1,16 +1,7 @@
 
-<div [matMenuTriggerFor]="menu">
+<div (click)="sendtoview()">
 <img mat-card-image src={{post_details.url}} *ngIf="post_details.fileType==='image'" alt="post_details by {{post_details.username}}">
 <video src={{post_details.url}} *ngIf="post_details.fileType==='video'" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
 </div>
 
-<mat-menu #menu="matMenu" yPosition="above" xPosition="before">
-    <button mat-menu-item>
-      <mat-icon>dialpad</mat-icon>
-      <span>View</span>
-    </button>
-    <button mat-menu-item (click)="ondel(post_details.keymail,post_details.name)">
-      <mat-icon>delete</mat-icon>
-      <span>Delete</span>
-    </button>
-  </mat-menu>
+
