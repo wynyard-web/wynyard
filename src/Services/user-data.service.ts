@@ -29,6 +29,8 @@ export class UserDataService {
   //   this.UserData = {"username":"","email":"","name":""};
   // }
 
+
+
   app = initializeApp(environment.firebase)
 
   fbapp = firebase.initializeApp(environment.firebase)
@@ -112,5 +114,27 @@ export class UserDataService {
       newuserref.update({username:new_username})
     })
 
+  }
+
+  userlist:any = []
+  get_all_users(keymail:string)
+  {
+    this.userlist=[]
+    let db = getDatabase(this.app)
+
+    let userref = ref(db,'/users')
+    get(userref).then(
+      (users)=>
+      {
+        users.forEach((user:any)=>
+        {
+          if(user.key != keymail)
+            this.userlist.push(user.val())
+        }
+        )
+      }
+    )
+
+    return this.userlist;
   }
 }

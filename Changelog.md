@@ -431,3 +431,9 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
   - added username before caption
 - ChatComponent
   - minor css
+
+<hr>
+
+### Changes by Omkar (26/10/2022)
+Minor Component withh static code
+pending job
