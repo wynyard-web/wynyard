@@ -72,7 +72,8 @@ export class UserDataService {
     if(username!=new_data.username)
         {
           this.modify_chats(username,new_data.username);
-          this.modify_posts(username,new_data.username)
+          this.modify_ontoone_chats(username,new_data.username);
+          this.modify_posts(username,new_data.username);
         }
     else
         console.log("Username not changed")
@@ -104,6 +105,30 @@ export class UserDataService {
       chat:chat.chat
     })
   });
+  }
+
+  modify_ontoone_chats(old_username:string,new_username:string)
+  {
+    let changeusernamekeys:any=[]
+
+    let db = getDatabase(this.app)
+    let allchatref = ref(db,'OneToOne/')
+    onValue(allchatref, (snapshot) => {
+
+      snapshot.forEach((childSnapshot) => {
+        childSnapshot.forEach((grandchild)=>{
+            if(grandchild.val().username==old_username)
+            {
+              let changeref = ref(db,'OneToOne/'+childSnapshot.key+"/"+grandchild.key)
+              set(changeref,{
+                username:new_username,
+                chat:grandchild.val().chat
+              })
+            }
+        })
+      })
+    });
+
   }
 
   async modify_posts(old_username:string,new_username:string)

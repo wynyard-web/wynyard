@@ -10,8 +10,18 @@
   <div class="chat_col" #chats *ngIf="logged_in_user.username!=''">
     <h1>Welcome {{logged_in_user.username}}</h1>
     <mat-tab-group mat-align-tabs="center">
-      <mat-tab label="Global Chat"><app-chat [username]="logged_in_user.username"></app-chat></mat-tab>
-      <mat-tab label="One on One Chat"><app-oneone [username]="logged_in_user.username" [keymail]="email"></app-oneone></mat-tab>
+      <mat-tab >
+         <ng-template mat-tab-label>
+          <mat-icon>people</mat-icon>
+        Global Chat
+      </ng-template>
+        <app-chat [username]="logged_in_user.username"></app-chat></mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>person</mat-icon>
+          One on One Chat
+        </ng-template>
+        <app-oneone [username]="logged_in_user.username" [keymail]="email"></app-oneone></mat-tab>
     </mat-tab-group>
   </div>
 </div>

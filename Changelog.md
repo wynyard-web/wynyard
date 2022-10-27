@@ -457,3 +457,19 @@ pending job
   - Comments getting uploaded successfully
   - fetchComments function called in ngOnInit() and ngOnChnages()
   - fetchComments works successfully
+
+<hr>
+
+### Changes by Omkar (27/10/2022)
+## Continuation for One on One Chat
+- One On One Chat
+  - Created seprate component for One on One Chats
+  - Fetching, deleteing, sending works for one to one
+  - sepration on basis of keymail
+  - keymail1_keymail2
+- User Data Service
+  - Modify username in  case of edit profile
+*modify and fix css*
+
+<hr>
+

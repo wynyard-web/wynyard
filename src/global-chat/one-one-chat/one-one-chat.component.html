@@ -6,7 +6,7 @@
     hasBackdrop="true"
     position="end"
   >
-    <!-- <div class="chat_title">
+    <div class="chat_title">
       <button mat-fab class="backfab" (click)="drawer.toggle()" class="back-but">
         <mat-icon style="cursor: pointer;">navigate_next</mat-icon>
       </button>
@@ -37,19 +37,20 @@
       <button (click)="add_to_chat(chat.value)" >
         <mat-icon style="cursor: pointer;">send</mat-icon>
       </button>
-    </div> -->
+    </div>
   </mat-drawer>
 
-  <div *ngFor="let user of userlist">
+  <div *ngFor="let user of userlist" class="maincontent">
     <button
       type="button"
-      mat-button
-      (click)="drawer.toggle(); sayhey(user.keymail)"
+      mat-raised-button color="primary"
+      (click)="drawer.toggle(); fetch_chats(user.email)"
       class="chat-button"
       [disabled]="username==''"
 
     >
       Open Chat with {{user.username}}
     </button>
+    <br>
   </div>
 </mat-drawer-container>

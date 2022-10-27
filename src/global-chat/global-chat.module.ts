@@ -1,3 +1,4 @@
+import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChatComponent } from './chat/chat.component';
@@ -20,6 +21,7 @@ import { OneOneChatComponent } from './one-one-chat/one-one-chat.component';
     MatSidenavModule,
     MatIconModule,
     MatDialogModule,
+    MatButtonModule
   ],
   exports:
   [
