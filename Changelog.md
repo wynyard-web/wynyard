@@ -437,3 +437,23 @@ Note to Harshita :- Assign data from doc to a array if possible and access as pe
 ### Changes by Omkar (26/10/2022)
 Minor Component withh static code
 pending job
+
+<hr>
+
+### Changes by Harshita (27/10/2022)
+## Major Change
+- Posts Module
+  - Created new component comments
+- Comments component
+  - created simple cards to display comments
+  - created simple card to upload comment
+  - Cards may be replaced later by something else
+- PostCard component
+  - Calling the comments component into the postCard component as a child
+  - created function to add comment to a post
+  - created function to fetch all the comments of a post with username and keymail
+  - created child to parent communication from comments to postCard to send the new comment    
+  - created parent to child communication from postCard to comments to send the comments array
+  - Comments getting uploaded successfully
+  - fetchComments function called in ngOnInit() and ngOnChnages()
+  - fetchComments works successfully

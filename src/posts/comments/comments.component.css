@@ -1,0 +1,30 @@
+.comments-div {
+    height:auto;
+    background-color: rgb(66, 65, 65);
+}
+
+.example-header-image {
+    background-image: url('src/assets/images/prj_logo_colour.png');
+    background-size: cover;
+  }
+  
+.example-full-width {
+width: 100%;
+height: 10px;
+}
+
+/* .align-self-end {
+    position:absolute ;
+  bottom: 10px;
+  width: 50%;
+  border: 3px solid #8AC007;
+}   */
+
+/* .current-comment-position {
+    bottom: 1px;
+    position:static
+}   */
+
+.bla1 {    
+    margin-top: 33.5%;    
+}
