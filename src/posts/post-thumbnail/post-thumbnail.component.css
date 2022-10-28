@@ -2,11 +2,16 @@ img
 {
   width: 500px;
   height: 300px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: antiquewhite;
+  object-fit: contain;
 }
 video
 {
   width: 500px;
   height: 300px;
+  object-fit: contain;
 }
 
 div:hover
