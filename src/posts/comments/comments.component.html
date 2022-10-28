@@ -1,24 +1,10 @@
 <div class="comments-div">
   <div *ngFor="let comment of comments">
-  <mat-card>
-    <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{comment.username}}:</mat-card-title>
-    <mat-card-content>{{comment.comment}}</mat-card-content>
-    <mat-card-subtitle>Time of the comment</mat-card-subtitle>
-  </mat-card-header>
-    
-  </mat-card>
+    <b>{{comment.username}}:</b><label>{{comment.comment}}</label>
 </div>
 
-  <div style="width:100%; background-color:aquamarine; " class="bla1" >
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Sample User:</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <form >
+<div>
+  <form >
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Comment</mat-label>
       <input matInput #comment maxlength="25600" id="inputComment" placeholder="Ex. Nice Pic...">
@@ -27,12 +13,7 @@
       <mat-icon (click)="addNewItem(comment.value)">arrow_right_alt</mat-icon>
     </mat-form-field>
       </form>
-    </mat-card-content>
-    </mat-card>
-  </div>
-
 </div>
-
 
 
 
