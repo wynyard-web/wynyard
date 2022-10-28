@@ -14,7 +14,9 @@ import { environment } from 'src/environments/environment';
 export class EditProfileDialogComponent implements OnInit {
 
 
-  constructor(public dialogRef: MatDialogRef<EditProfileDialogComponent>,@Inject(MAT_DIALOG_DATA) public data:any, private udserv:UserDataService) {}
+  constructor(public dialogRef: MatDialogRef<EditProfileDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data:any, 
+    private udserv:UserDataService) {}
 
   userdata:any;
 

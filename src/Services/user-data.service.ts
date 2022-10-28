@@ -74,7 +74,7 @@ export class UserDataService {
           this.modify_chats(username,new_data.username);
           this.modify_ontoone_chats(username,new_data.username);
           this.modify_posts(username,new_data.username);
-          //this.modify_comments(username,new_data.username);
+          this.modify_comments(username,new_data.username);
         }
     else
         console.log("Username not changed")
@@ -130,26 +130,35 @@ export class UserDataService {
 
   }
 
-  // modify_comments(old_username:string,new_username:string)
-  // {
-  //   let db = getDatabase(this.app)
-  //   let allcommentref = ref(db,"post_comments/")
-  //   onValue(allcommentref,(keymail_user)=>{
-  //     keymail_user.forEach((post_name)=>{
-  //       post_name.forEach((comment)=>{
-  //         if(comment.val().username==old_username)
-  //         {
-  //           let changeref = ref (db,'post_comments/'+keymail_user.key+"/"+post_name.key+"/"+comment.key)
-  //           set(changeref,{
-  //             comment:comment.val().comment,
-  //             keymail:comment.val().keymail,
-  //             username:new_username
-  //           })
-  //         }
-  //       })
-  //     })
-  //   })
-  // }
+  modify_comments(old_username:string,new_username:string)
+  {
+    try {
+      let db = getDatabase(this.app)
+      let allcommentref = ref(db,"post_comments/")    
+      onValue(allcommentref,(keymail_user)=>{
+        keymail_user.forEach((post_name)=>{
+          post_name.forEach((comment)=>{
+            comment.forEach((comm)=>{            
+              if(comm.val().username==old_username)
+              {            
+                let changeref = ref (db,keymail_user.key+"/"+post_name.key+"/"+comment.key + "/" + comm.key + "/")             
+                set(changeref,{
+                  username:new_username,
+                  comment:comm.val().comment,
+                  keymail:comm.val().keymail,             
+                })              
+              }
+            })
+            
+            
+          })
+        })
+      })
+    } catch(e) {
+      console.log(e)
+    }
+    
+  }
 
   async modify_posts(old_username:string,new_username:string)
   {
