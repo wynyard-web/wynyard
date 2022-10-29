@@ -40,6 +40,13 @@ export class ProfileComponent implements OnInit {
     // this.userName = this.user_data_service.username;
     // this.bio = this.user_data_service.fetch_userdata_with_keymail(this.keymail).bio
 
+
+    if(this.keymail=="")
+    {
+      alert("Must be logged in to view profile")
+      this.router.navigateByUrl("/home")
+    }
+
     let data = this.user_data_service.fetch_userdata_with_keymail(this.keymail)
     console.log("ngOnInit():",data)
     this.fullName = data.name;

@@ -501,3 +501,7 @@ pending job
   - using ref imported from storage
 
 <hr>
+
+### Changes by Omkar (29/10/2022)
+- Removed extra profile pane due to redundancy (currently commented)
+- Will navigate to home if attempted to visit profile without logging in

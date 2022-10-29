@@ -1,9 +1,9 @@
 <div class="main-row">
-  <div class="prof_col" #settings *ngIf="logged_in_user.username!=''">
+  <!-- <div class="prof_col" #settings *ngIf="logged_in_user.username!=''">
     <button mat-raised-button style="cursor: pointer;" (click)="go_to_profile()" [disabled]="logged_in_user.username==''">Profile</button>
     <br>
     <button mat-raised-button style="cursor: pointer;" routerLink="/add-post" [disabled]="logged_in_user.username==''">Add a Post</button>
-  </div>
+  </div> -->
   <div [ngClass]="{posts_col2: logged_in_user.username=='', posts_col1: logged_in_user.username!=''}" #posts>
     <app-post_list></app-post_list>
   </div>
