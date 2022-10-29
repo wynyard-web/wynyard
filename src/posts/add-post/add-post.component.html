@@ -10,8 +10,8 @@
 
         <div class="row-2">
             <div class="preview" >
-                <img [src] = "url" *ngIf="format==='image' && url" style="height: 100%; width:100%">
-                <video [src]="url" *ngIf="format==='video' && url" style="height: 100%; width:100%" controls></video>
+                <img [src] = "url" *ngIf="format==='image' && url" >
+                <video [src]="url" *ngIf="format==='video' && url" controls></video>
             </div>
 
             <div>
