@@ -1,7 +1,7 @@
 <mat-drawer-container class="example-container" >
   <mat-drawer #drawer class="example-sidenav" mode="side" style="background-color:bisque ;">
-
-    <img src="/assets/images/prj_logo_colour.png"  alt="Profile Picture" height="100px" width="100px"><br><br>
+<img [src]="profile_pic_url"  alt="Profile Picture" height="100px" width="100px"><br><br>
+    
     <button mat-raised-button class="profile-button" (click)="openDialog()">Edit Profile</button> <br><br>
     <button mat-raised-button class="profile-button" (click)="go_to_Add_Post()">Add Post</button> <br><br>
     <button mat-raised-button class="profile-button">Settings</button> <br><br>
@@ -34,7 +34,7 @@
 <mat-icon class="mat_icon_left-arrow"  (click)="go_back()" >keyboard_arrow_left</mat-icon>
     
     
-      <mat-icon (click)="Assign_profile_data()" style="margin-left:96%">refresh</mat-icon>
+      <mat-icon (click)="Refresh_profile_data()" style="margin-left:96%">refresh</mat-icon>
 
 <div >
     <div >
@@ -44,7 +44,7 @@
         <mat-card class="matcard_col1">
 
         <div class = "imgdiv">
-        <img src="/assets/images/prj_logo_black.png"  alt="Profile Picture" height="200px" width="200px">
+        <img [src]="profile_pic_url"  alt="Profile Picture" height="200px" width="200px">
         </div>
         </mat-card>
 

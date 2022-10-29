@@ -11,7 +11,7 @@
         <div class="row-2">
             <div class="preview" >
                 <img [src] = "url" *ngIf="format==='image' && url" >
-                <video [src]="url" *ngIf="format==='video' && url" controls></video>
+                <video [src]="url" *ngIf="format==='video' && url" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
             </div>
 
             <div>

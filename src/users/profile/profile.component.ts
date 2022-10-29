@@ -10,7 +10,8 @@ import {Location} from '@angular/common';
 import { getFirestore, collection, addDoc, doc, deleteDoc } from 'firebase/firestore';
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
-import { getStorage, ref, deleteObject } from "firebase/storage";
+import { getStorage, ref, deleteObject, getDownloadURL } from "firebase/storage";
+import { PostTasksService } from 'src/Services/post-tasks.service';
 
 @Component({
   selector: 'app-profile',
@@ -25,13 +26,14 @@ export class ProfileComponent implements OnInit {
     private router: Router,
     private user_data_service:UserDataService,
     private location:Location,
-    
+    private postTask:PostTasksService
     ) {}
 
 
   fullName:any;
   userName:any;
   bio:any;
+  profile_pic_url:any = "/assets/images/prj_logo_colour.png"
 
   ngOnInit() {
     // this.fullName = this.user_data_service.name;
@@ -43,6 +45,10 @@ export class ProfileComponent implements OnInit {
     this.fullName = data.name;
     this.userName = data.username;
     this.bio = data.bio
+    
+    this.fetch_profile_pic()
+    
+    
 
   }
 
@@ -51,12 +57,13 @@ export class ProfileComponent implements OnInit {
     
   }
 
-  Assign_profile_data() {
+  Refresh_profile_data() {
     let data = this.user_data_service.updatedData
     console.log("ProfileData", data)
     this.fullName = data.name 
     this.userName = data.username
     this.bio = data.bio
+    this.fetch_profile_pic()
   }
 
   showFiller = false;
@@ -69,7 +76,8 @@ export class ProfileComponent implements OnInit {
 
   openDialog(): void {
     this.dialog.open(EditProfileDialogComponent, {
-      width: '250px',
+      width: '40%',
+      height: '70%',
       data : this.user_data_service.fetch_userdata_with_keymail(this.keymail)
     });
   }
@@ -89,52 +97,28 @@ export class ProfileComponent implements OnInit {
   fb_db = firebase.firestore()
   keymail = this.user_data_service.email.replace(".","")
 
-  // metadata:any = []
-  // async user_posts() {
+ 
+  
+  fetch_profile_pic() {
+    const firebase_storage = getStorage()
+    
+    getDownloadURL(ref(firebase_storage, "profile_pic/" + this.keymail + "/" + this.user_data_service.username))
+  .then((url) => {    
+    //console.log(url)
+    this.profile_pic_url = url
+    //console.log(this.profile_pic_url)
+    
+  })
+  .catch((error) => {
+    // Handle any errors
+    console.log("Error while loading profile pic:", error)
+  });
+  }
 
-  //   // const fb_db = firebase.firestore()
-  //   // const keymail = this.user_data_service.email.replace(".","")
-  //   this.metadata = []
-  // let metadata_ref = this.fb_db.collection("posts_metadata");
-  // let snapshot = await metadata_ref.get();
-  // snapshot.forEach(doc => {
-  //   if (doc.data()['keymail'] == this.keymail) {
-  //     this.metadata.push(doc.data())
-  //     //console.log(doc.id,"=>",doc.data());
-  //   }
 
-  // });
-  // }
+  
 
-
-  // async delete_post(name:any) {
-  //   const storage = getStorage();
-
-  //   // Create a reference to the file to delete
-  //   const postRef = ref(storage, 'posts/' + this.keymail + '/' + name);
-
-  //   // Delete the file from storage
-  //   deleteObject(postRef).then(() => {
-  //     // File deleted successfully
-  //     alert("post deleted successfully")
-  //   }).catch((error) => {
-  //   // Uh-oh, an error occurred!
-  //   });
-
-  //   // Delete post metadata from firestore
-  //   const fb_db = firebase.firestore()
-  //   let metadata_ref = this.fb_db.collection("posts_metadata");
-  //   let snapshot = await metadata_ref.get();
-  //   snapshot.forEach(async doc => {
-  //     if (doc.data()['keymail'] == this.keymail && doc.data()['name'] == name) {
-  //       //await deleteDoc(doc(fb_db, "posts_metadata", doc.id));
-  //       doc.ref.delete()
-  //       alert("Metadata deleted successfully")
-  //     }
-
-  //   });
-
-  // }
+  
 
 
 }

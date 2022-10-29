@@ -19,6 +19,7 @@ export class UserDataService {
   email: any = "";
   name!: any;
   username!: any;
+  
 
   userdata:any;
   updatedData:any
@@ -54,6 +55,7 @@ export class UserDataService {
         this.username = data.username
         if (!("bio" in data))
           data.bio=""
+        
         this.userdata = data
       }
     })
@@ -66,6 +68,7 @@ export class UserDataService {
     let keymail = useremail.replace(".","")
     let db = getDatabase(this.app)
     let userref = ref(db,'/users/'+keymail);
+    console.log(new_data)
     set(userref,new_data).then(() => {
       // Data saved successfully!
       console.log("Data updated in realtime database")

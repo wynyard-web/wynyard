@@ -477,3 +477,20 @@ pending job
 - userData Service
   - Solved the error regarding the function modifyComments
   - Username in comment section modifies as per requirement 
+
+<hr>
+
+### Changes by Harshita (29/10/2022)
+- Profile component
+  - Created refresh button to fetch latest user data after editing
+- Add Post component
+  - Removed control from the preview of image
+- Post Task Service
+  - Created a function to store profile pic of user
+- Edit Profile Dialog Component
+  - Modified this component a little (small changes)
+- Profile component
+  - Created a function to fetch profile pic from firebase storage
+  - There was some problem with getting the download url and storing the url in realtime database, so the task not done currently
+
+<hr>  
