@@ -82,11 +82,11 @@ export class PostTasksService {
 
    Upload_post(current_post_data:Post_Metadata) {
 
-    const keymail = this.userdata.email.replace(".", "")    
-    const path = 'posts/' + keymail + "/" + current_post_data.name    
+    const keymail = this.userdata.email.replace(".", "")
+    const path = 'posts/' + keymail + "/" + current_post_data.name
     const firebase_storageRef = ref(this.firebase_storage, path)
     const uploadTask = uploadBytesResumable(firebase_storageRef, current_post_data.post);
- 
+
   uploadTask.on('state_changed',
     (snapshot) => {
     this.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -103,8 +103,8 @@ export class PostTasksService {
   },
   (error) => {
     console.log("error occured while uploading the post:", error)
-    
-    
+
+
   },
   () => {
     // Upload completed successfully, now we can get the download URL
@@ -213,11 +213,11 @@ export class PostTasksService {
 
   save_profile_pic(file:File) {
     const keymail = this.userdata.email.replace(".", "")
-    const profilepicRef = ref(this.firebase_storage, 'profile_pic/' + keymail + "/" + this.userdata.username)
+    const profilepicRef = ref(this.firebase_storage, 'profile_pic/' + keymail + "/" + keymail)
 
     const uploadTask = uploadBytesResumable(profilepicRef, file);
 
-    uploadTask.on('state_changed', 
+    uploadTask.on('state_changed',
       (snapshot) => {
         // Observe state change events such as progress, pause, and resume
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
@@ -231,19 +231,19 @@ export class PostTasksService {
             console.log('Upload is running');
             break;
         }
-      }, 
+      },
       (error) => {
         console.log("Error while uploading the profile pic:", error)
-      }, 
-      () => {        
+      },
+      () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log('File available at', downloadURL);         
+          console.log('File available at', downloadURL);
         });
       }
     );
   }
 
 
-  
+
 
 }

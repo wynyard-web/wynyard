@@ -1,9 +1,11 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { initializeApp } from '@firebase/app';
-import { getFirestore, collection, addDoc, setDoc, doc, updateDoc } from 'firebase/firestore';
 import { environment } from 'src/environments/environment';
 import { UserDataService } from 'src/Services/user-data.service';
 import {getDatabase, ref, set,push, onValue, remove} from 'firebase/database'
+
+import { getStorage, getDownloadURL } from "firebase/storage";
+import {ref as frref} from "firebase/storage";
 
 @Component({
   selector: 'app-post-card',
@@ -16,10 +18,11 @@ export class PostCardComponent implements OnInit {
 
   @Input() post_details:any;
 
-  
+  profile_pic_url = "";
 
   ngOnInit(): void {
     this.fetchComments()
+    this.fetch_profile_pic()
   }
 
   ngOnChanges(): void {
@@ -28,17 +31,17 @@ export class PostCardComponent implements OnInit {
 
   comments:any = []
 
-  
+
 
   app = initializeApp(environment.firebase)
   realtime = getDatabase(this.app)
 
   async addNewComment(comment:any) {
-    
+
     let post_keymail = this.post_details.keymail
     let post_name = this.post_details.name.replace(".","")
     let keymail = this.userService.email.replace(".","")
-    
+
     try {
       let PostCommentRef = ref(this.realtime, "post_comments/" + post_keymail + "/" + post_name + "/")
     let newCommentRef = push(PostCommentRef)
@@ -55,9 +58,9 @@ export class PostCardComponent implements OnInit {
       )
       alert("Data uploaded in realtime successfully")
     }
-      
 
-      
+
+
       // this.router.navigateByUrl("/")
     } catch (e) {
       console.error("Error adding document: ", e);
@@ -77,6 +80,22 @@ export class PostCardComponent implements OnInit {
         this.comments.push(data)
       })
     });
+  }
+
+  fetch_profile_pic() {
+    const firebase_storage = getStorage()
+
+    getDownloadURL(frref(firebase_storage, "profile_pic/" + this.post_details.keymail + "/" + this.post_details.keymail))
+  .then((url) => {
+    //console.log(url)
+    this.profile_pic_url = url
+    //console.log(this.profile_pic_url)
+
+  })
+  .catch((error) => {
+    // Handle any errors
+    this.profile_pic_url = "/assets/wynyard/images/prj_logo_black.png"
+  });
   }
 
 }

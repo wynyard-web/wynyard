@@ -45,22 +45,22 @@ export class ProfileComponent implements OnInit {
     this.fullName = data.name;
     this.userName = data.username;
     this.bio = data.bio
-    
+
     this.fetch_profile_pic()
-    
-    
+
+
 
   }
 
   // never called
-  ngOnChnages() {
-    
+  ngOnChanges() {
+    console.log("Yo")
   }
 
   Refresh_profile_data() {
     let data = this.user_data_service.updatedData
     console.log("ProfileData", data)
-    this.fullName = data.name 
+    this.fullName = data.name
     this.userName = data.username
     this.bio = data.bio
     this.fetch_profile_pic()
@@ -97,17 +97,17 @@ export class ProfileComponent implements OnInit {
   fb_db = firebase.firestore()
   keymail = this.user_data_service.email.replace(".","")
 
- 
-  
+
+
   fetch_profile_pic() {
     const firebase_storage = getStorage()
-    
-    getDownloadURL(ref(firebase_storage, "profile_pic/" + this.keymail + "/" + this.user_data_service.username))
-  .then((url) => {    
+
+    getDownloadURL(ref(firebase_storage, "profile_pic/" + this.keymail + "/" + this.keymail))
+  .then((url) => {
     //console.log(url)
     this.profile_pic_url = url
     //console.log(this.profile_pic_url)
-    
+
   })
   .catch((error) => {
     // Handle any errors
@@ -116,9 +116,9 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  
 
-  
+
+
 
 
 }

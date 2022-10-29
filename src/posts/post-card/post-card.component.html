@@ -1,7 +1,7 @@
 
     <mat-card class="example-card">
         <mat-card-header>
-          <!-- <div mat-card-avatar class="example-header-image"></div> -->
+          <img mat-card-avatar [src]="profile_pic_url" class="avataricon">
           <mat-card-title>{{post_details.username}}</mat-card-title>
           <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
@@ -15,9 +15,9 @@
               <mat-expansion-panel-header>
                 Comments
               </mat-expansion-panel-header>
-          
+
               <app-comments (newComment)="addNewComment($event)" [comments]="comments"></app-comments>
-          
+
             </mat-expansion-panel>
           </div>
 

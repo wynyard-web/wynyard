@@ -494,3 +494,10 @@ pending job
   - There was some problem with getting the download url and storing the url in realtime database, so the task not done currently
 
 <hr>  
+
+### Changes by Omkar (29/10/2022)
+- Post Card
+  - profile pic visible on card
+  - using ref imported from storage
+
+<hr>
