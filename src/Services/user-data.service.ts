@@ -7,6 +7,7 @@ import { initializeApp } from 'firebase/app';
 
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,9 @@ export class UserDataService {
   username!: any;
 
   userdata:any;
+  updatedData:any
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   // set_logout()
   // {
@@ -43,7 +45,10 @@ export class UserDataService {
     get(userRef).then((user_detail)=>{
       if(user_detail.exists()) {
          data = user_detail.val()
+         this.updatedData = ""
         console.log("data:", data)
+        this.updatedData = user_detail.val()
+        console.log("updated Data:", this.updatedData)
         this.email = data.email
         this.name = data.name
         this.username = data.username
@@ -78,6 +83,9 @@ export class UserDataService {
         }
     else
         console.log("Username not changed")
+    this.updatedData = ''    
+    this.fetch_userdata_with_keymail(keymail)   
+     
   }
 
 

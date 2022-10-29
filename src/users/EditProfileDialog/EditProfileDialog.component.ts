@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class EditProfileDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<EditProfileDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any, 
-    private udserv:UserDataService) {}
+    private udserv:UserDataService,
+    ) {}
 
   userdata:any;
 
@@ -24,6 +26,7 @@ export class EditProfileDialogComponent implements OnInit {
     this.userdata = this.data
   }
 
+  
   app = initializeApp(environment.firebase)
 
   edit_user_details(fullName:any, username:any, bio:any){
@@ -34,6 +37,7 @@ export class EditProfileDialogComponent implements OnInit {
 
     this.udserv.set_after_edit(this.userdata.email,this.udserv.username,this.userdata)
 
+    
   }
 
 

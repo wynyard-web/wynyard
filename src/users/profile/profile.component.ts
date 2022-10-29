@@ -24,7 +24,8 @@ export class ProfileComponent implements OnInit {
   constructor(public dialog: MatDialog,
     private router: Router,
     private user_data_service:UserDataService,
-    private location:Location
+    private location:Location,
+    
     ) {}
 
 
@@ -33,10 +34,29 @@ export class ProfileComponent implements OnInit {
   bio:any;
 
   ngOnInit() {
-    this.fullName = this.user_data_service.name;
-    this.userName = this.user_data_service.username;
-    this.bio = this.user_data_service.fetch_userdata_with_keymail(this.keymail).bio
+    // this.fullName = this.user_data_service.name;
+    // this.userName = this.user_data_service.username;
+    // this.bio = this.user_data_service.fetch_userdata_with_keymail(this.keymail).bio
 
+    let data = this.user_data_service.fetch_userdata_with_keymail(this.keymail)
+    console.log("ngOnInit():",data)
+    this.fullName = data.name;
+    this.userName = data.username;
+    this.bio = data.bio
+
+  }
+
+  // never called
+  ngOnChnages() {
+    
+  }
+
+  Assign_profile_data() {
+    let data = this.user_data_service.updatedData
+    console.log("ProfileData", data)
+    this.fullName = data.name 
+    this.userName = data.username
+    this.bio = data.bio
   }
 
   showFiller = false;

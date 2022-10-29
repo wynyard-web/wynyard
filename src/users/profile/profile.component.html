@@ -17,15 +17,24 @@
 
 
 <div >
-
+  <div>
+    <mat-icon class="mat_icon_button"  (click)="drawer.toggle()">more_vert</mat-icon>
+  </div>
  <div style="text-align: center;">
-  <mat-icon class="mat_icon_left-arrow" (click)="go_back()">keyboard_arrow_left</mat-icon>
-  <mat-icon class="mat_icon_button" (click)="drawer.toggle()">more_vert</mat-icon>
+  
 
     {{fullName}}
-
+    
     <hr>
+    
+      
+    
 </div>
+
+<mat-icon class="mat_icon_left-arrow"  (click)="go_back()" >keyboard_arrow_left</mat-icon>
+    
+    
+      <mat-icon (click)="Assign_profile_data()" style="margin-left:96%">refresh</mat-icon>
 
 <div >
     <div >
