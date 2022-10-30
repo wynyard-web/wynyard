@@ -505,3 +505,17 @@ pending job
 ### Changes by Omkar (29/10/2022)
 - Removed extra profile pane due to redundancy (currently commented)
 - Will navigate to home if attempted to visit profile without logging in
+
+<hr>
+
+### Changes by Omkar (30/10/2022)
+- Profile Component
+  - CSS for light purple background and transpernet bg
+- Post List (**Major**)
+  - Animated background using css
+  - new class for background css
+- Post Card
+  - changed css from gradient to white
+- Comments
+  - changed colour to white
+- AddPost Pending for CSS Overhaul

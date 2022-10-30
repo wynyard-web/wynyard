@@ -1,14 +1,22 @@
+<body>
+<div class="hero">
 
-<div class="main_scroll">
+
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
 
   <div *ngFor="let post of metadata" class="innerdiv">
     <app-post-card [post_details]="post"></app-post-card>
   </div>
-
 </div>
+</body>
 
-
-
- <!-- <div >
-  <button mat-button-raised style="height: 50px; width:50px;"  (click)="post_list()"> click me</button>
- </div> -->

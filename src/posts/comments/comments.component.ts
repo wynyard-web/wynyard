@@ -12,11 +12,14 @@ export class CommentsComponent implements OnInit {
   constructor(private userService:UserDataService) { }
 
   ngOnInit() {
+
   }
 
   @Output() newComment = new EventEmitter<String>()
 
-  @Input() comments:any
+  @Input() comments:any;
+
+  @Input() username="";
 
   addNewItem(value: string) {
 
@@ -24,6 +27,6 @@ export class CommentsComponent implements OnInit {
 
   }
 
-  
-  
+
+
 }

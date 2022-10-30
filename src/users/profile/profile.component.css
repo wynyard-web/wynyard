@@ -25,7 +25,7 @@ img {
 
 .matcard_col1, .matcard_col2{
   height: 250px;
-  background-color: bisque;
+  background-color: #e5d4fc;
 
 }
 
@@ -60,7 +60,7 @@ img {
   left: 3px;
   position:absolute;
   cursor: pointer;
-  
+
   border:none;
 }
 
@@ -70,4 +70,10 @@ img {
 
 }
 
+div{
+  background-color: #b885fa;
+}
 
+mat-drawer{
+  background-color: #b885fa;
+}

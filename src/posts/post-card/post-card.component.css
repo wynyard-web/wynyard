@@ -4,7 +4,7 @@ img
   height: 300px;
   margin: 5px;
   border-radius: 5px;
-  background-color: antiquewhite;
+  background-color: rgb(228, 228, 228);
   object-fit: contain;
 }
 video
@@ -36,11 +36,15 @@ mat-card-content
 
 mat-card
 {
-  border: 1px solid black;
   width: fit-content;
   padding: auto;
-  background: linear-gradient(184deg, rgb(252, 126, 237) 7%, rgb(252, 104, 104) 100%);
+  background: whitesmoke
 
+}
+
+mat-expansion-panel
+{
+  background: whitesmoke;
 }
 
 mat-card:hover
@@ -57,3 +61,4 @@ b
 {
   color: rgb(82, 0, 85);
 }
+

@@ -101,7 +101,8 @@
   height: 60vh;
   display:flex;
   flex-direction:column-reverse;
-  background-color: rgb(226, 90, 181);
+  background-color: rgb(226, 190, 255);
+  margin-left: 5px;
 }
 
 ::-webkit-scrollbar
@@ -120,6 +121,11 @@
 {
   width: 100%;
 
+}
+
+mat-drawer
+{
+  background-color: rgb(0, 0, 0);
 }
 
 .example-sidenav-content {

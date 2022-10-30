@@ -9,7 +9,7 @@
         <video src={{post_details.url}} *ngIf="post_details.fileType==='video'" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" loop></video>
         <mat-card-content>
           <b>{{post_details.username}}</b> &nbsp; &nbsp; <div class="caption">{{post_details.caption}}</div>
-
+          <br>
           <div>
             <mat-expansion-panel>
               <mat-expansion-panel-header>
