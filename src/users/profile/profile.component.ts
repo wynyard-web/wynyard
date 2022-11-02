@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
   fullName:any;
   userName:any;
   bio:any;
-  profile_pic_url:any = "/assets/images/prj_logo_colour.png"
+  profile_pic_url:any = ""
 
   ngOnInit() {
     // this.fullName = this.user_data_service.name;
@@ -118,7 +118,16 @@ export class ProfileComponent implements OnInit {
   })
   .catch((error) => {
     // Handle any errors
+    //console.log("Error while loading profile pic:", error)
+    getDownloadURL(ref(firebase_storage, "assets/" + "prj_logo_colour.png"))
+  .then((url) => {
+    //console.log(url)
+    this.profile_pic_url = url
+    //console.log(this.profile_pic_url)
+
+  }).catch((error)=> {
     console.log("Error while loading profile pic:", error)
+  })
   });
   }
 

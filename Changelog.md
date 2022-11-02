@@ -519,3 +519,9 @@ pending job
 - Comments
   - changed colour to white
 - AddPost Pending for CSS Overhaul
+
+<hr>
+
+### Changes by Harshita and Omkar (02/11/2022)
+- Uploaded all the assets to the firebase storage
+- Loading all the assets from the firebase storage wherever required.

@@ -111,7 +111,17 @@ export class PostCardComponent implements OnInit {
   })
   .catch((error) => {
     // Handle any errors
-    this.profile_pic_url = "/assets/wynyard/images/prj_logo_black.png"
+    //this.profile_pic_url = "/assets/wynyard/images/prj_logo_black.png"
+
+    getDownloadURL(frref(firebase_storage, "assets/" + "prj_logo_black.png"))
+    .then((url) => {
+      //console.log(url)
+      this.profile_pic_url = url
+      //console.log(this.profile_pic_url)
+  
+    }).catch((error) => {
+      console.log("Error loading profile pic:", error)
+    })
   });
   }
 
