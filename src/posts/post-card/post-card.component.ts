@@ -23,6 +23,7 @@ export class PostCardComponent implements OnInit {
   ngOnInit(): void {
     this.fetchComments()
     this.fetch_profile_pic()
+    this.comment_header = this.comments[0].username + this.comments[0].comment
   }
 
   ngOnChanges(): void {
@@ -35,6 +36,22 @@ export class PostCardComponent implements OnInit {
 
   app = initializeApp(environment.firebase)
   realtime = getDatabase(this.app)
+
+  comment_header = "Click to open Comments";
+  comment_user = ""
+
+  on_close()
+  {
+    this.comment_user = this.comments[0].username
+    this.comment_header = " : " + this.comments[0].comment
+  }
+
+  on_open()
+  {
+    this.comment_user = ""
+    this.comment_header = "Comments"
+  }
+
 
   async addNewComment(comment:any) {
 

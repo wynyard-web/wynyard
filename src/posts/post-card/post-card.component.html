@@ -11,12 +11,11 @@
           <b>{{post_details.username}}</b> &nbsp; &nbsp; <div class="caption">{{post_details.caption}}</div>
           <br>
           <div>
-            <mat-expansion-panel>
+            <mat-expansion-panel (opened)="on_open()" (closed)="on_close()">
               <mat-expansion-panel-header>
-                Comments
+                <b>{{comment_user}}</b> {{comment_header}}
               </mat-expansion-panel-header>
-
-              <app-comments (newComment)="addNewComment($event)" [comments]="comments"></app-comments>
+                 <app-comments (newComment)="addNewComment($event)" [comments]="comments"></app-comments>
 
             </mat-expansion-panel>
           </div>
