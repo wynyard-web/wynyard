@@ -82,7 +82,4 @@ export class LoginComponent  {
 //   this.Router.navigate(["/home"],{ queryParams: { user: username } })
 // }
 
-
-
-
 }

@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { UserDataService } from './../../Services/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { getStorage, ref, deleteObject, getDownloadURL } from "firebase/storage";
+import { getAuth, signOut } from "firebase/auth";
 
 @Component({
   selector: 'app-header',
@@ -16,10 +17,17 @@ export class HeaderComponent implements OnInit {
     this.fetch_wynyard()
   }
 
+  auth = getAuth();
   logout()
   {
     //this.ud.set_logout();
-    window.location.reload()
+    signOut(this.auth).then(() => {
+      // Sign-out successful.
+      window.location.reload()
+    }).catch((error) => {
+      // An error happened.
+      alert("Error logging out.")
+    });
   }
 
   wynyard = ""
