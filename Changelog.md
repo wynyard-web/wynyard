@@ -525,3 +525,9 @@ pending job
 ### Changes by Harshita and Omkar (02/11/2022)
 - Uploaded all the assets to the firebase storage
 - Loading all the assets from the firebase storage wherever required.
+  
+<hr>
+
+### Changes by Omkar (4/11/2022)
+- Minor CSS Changes to Login/Register Pages
+- changed replace to replaceAll() to accomodate  email addresses with multiple (.)

@@ -43,7 +43,7 @@ export class OneOneChatComponent implements OnInit {
 
   fetch_chats(km: string) {
     let keymail = this.keymail
-    let keymail2 = km.replace(".", "")
+    let keymail2 = km.replaceAll(".", "")
 
     let Message_Key = [keymail, keymail2].sort().join("_")
 

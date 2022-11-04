@@ -55,7 +55,7 @@ export class PostTasksService {
 
 
   async save_metadata_of_post(current_post_data:Post_Metadata, imageUrl:string) {
-    const keymail = this.userdata.email.replace(".", "")
+    const keymail = this.userdata.email.replaceAll(".", "")
     //console.log(imageUrl)
     try {
       const docRef = await addDoc(collection(this.firebase_firestore_db, "posts_metadata"), {
@@ -82,7 +82,7 @@ export class PostTasksService {
 
    Upload_post(current_post_data:Post_Metadata) {
 
-    const keymail = this.userdata.email.replace(".", "")
+    const keymail = this.userdata.email.replaceAll(".", "")
     const path = 'posts/' + keymail + "/" + current_post_data.name
     const firebase_storageRef = ref(this.firebase_storage, path)
     const uploadTask = uploadBytesResumable(firebase_storageRef, current_post_data.post);
@@ -212,7 +212,7 @@ export class PostTasksService {
   }
 
   save_profile_pic(file:File) {
-    const keymail = this.userdata.email.replace(".", "")
+    const keymail = this.userdata.email.replaceAll(".", "")
     const profilepicRef = ref(this.firebase_storage, 'profile_pic/' + keymail + "/" + keymail)
 
     const uploadTask = uploadBytesResumable(profilepicRef, file);

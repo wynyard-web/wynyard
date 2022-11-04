@@ -25,7 +25,7 @@ export class Post_gridComponent implements OnInit {
   async user_posts() {
 
     // const fb_db = firebase.firestore()
-    // const keymail = this.user_data_service.email.replace(".","")
+    // const keymail = this.user_data_service.email.replaceAll(".","")
     this.post_list = []
   let post_list_ref = this.fb_db.collection("posts_metadata");
   let snapshot = await post_list_ref.get();

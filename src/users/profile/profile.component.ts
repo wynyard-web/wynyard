@@ -102,7 +102,7 @@ export class ProfileComponent implements OnInit {
 
 
   fb_db = firebase.firestore()
-  keymail = this.user_data_service.email.replace(".","")
+  keymail = this.user_data_service.email.replaceAll(".","")
 
 
 

@@ -56,8 +56,8 @@ export class PostCardComponent implements OnInit {
   async addNewComment(comment:any) {
 
     let post_keymail = this.post_details.keymail
-    let post_name = this.post_details.name.replace(".","")
-    let keymail = this.userService.email.replace(".","")
+    let post_name = this.post_details.name.replaceAll(".","")
+    let keymail = this.userService.email.replaceAll(".","")
 
     try {
       let PostCommentRef = ref(this.realtime, "post_comments/" + post_keymail + "/" + post_name + "/")
@@ -86,7 +86,7 @@ export class PostCardComponent implements OnInit {
 
   fetchComments() {
     let post_keymail = this.post_details.keymail
-    let post_name = this.post_details.name.replace(".","")
+    let post_name = this.post_details.name.replaceAll(".","")
 
     const commentRef = ref(this.realtime, '/post_comments/' + post_keymail + "/" + post_name);
     onValue(commentRef, (snapshot) => {
@@ -118,7 +118,7 @@ export class PostCardComponent implements OnInit {
       //console.log(url)
       this.profile_pic_url = url
       //console.log(this.profile_pic_url)
-  
+
     }).catch((error) => {
       console.log("Error loading profile pic:", error)
     })

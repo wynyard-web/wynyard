@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   // public w:any;
 
   logged_in_user:any = {'username':""};
-  
+
 
   app = initializeApp(environment.firebase)
   db = getDatabase(this.app)
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
 
   fetch_user_details(user_email:any)
   {
-    let keymail = user_email.replace(".", "");
+    let keymail = user_email.replaceAll(".", "");
 
     this.ud.fetch_userdata_with_keymail(keymail)
     this.logged_in_user = this.ud
@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
     //                     {
     //                       //console.log("user_detail.val():", user_detail.val())
     //                       this.logged_in_user = user_detail.val()
-    //                       const data = user_detail.val()                          
+    //                       const data = user_detail.val()
     //                       this.ud.email = data.email
     //                       this.ud.name = data.name
     //                       this.ud.username = data.username
@@ -82,7 +82,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  
+
 
 
 }

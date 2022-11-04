@@ -17,7 +17,6 @@ export class RegisterComponent implements OnInit {
   constructor(private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log("omkarelectric892@gmail.com".replace('.',''))
   }
 
   pass_dont_match = false
@@ -25,18 +24,18 @@ export class RegisterComponent implements OnInit {
   app = initializeApp(environment.firebase)
 
   auth = getAuth(this.app)
-  
-  register(fullname:any, uname:any, email:any, password:any, conf_password:any) {  
+
+  register(fullname:any, uname:any, email:any, password:any, conf_password:any) {
     if (password == conf_password) {
       this.pass_dont_match = false
-      let keymail = email.replace('.','')
+      let keymail = email.replaceAll('.','')
     const database = getDatabase()
     let userRef = ref(database, 'users/' + keymail)
     //let newUser = push(userRef)
     set(userRef, {
       name: fullname,
       username: uname,
-      email: email      
+      email: email
     }).then(() => {
       // Data saved successfully!
       console.log("Data updated in realtime database")
@@ -51,25 +50,25 @@ export class RegisterComponent implements OnInit {
   .then((userCredential) => {
 
     const user = userCredential.user;
-    alert("User Registered successfully")    
+    alert("User Registered successfully")
     this.router.navigate(["/login"])
-    
-  })  
+
+  })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
 
   });
 
-    }  
+    }
     else {
       this.pass_dont_match = true
     }
-    
-  
-    
 
-  
+
+
+
+
   }
 
   go_to_login() {
