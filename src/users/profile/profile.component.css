@@ -31,7 +31,12 @@ img {
 
 b
 {
-  font-size: larger;
+  font-size: x-large;
+}
+.b2
+{
+  font-size: x-large;
+  color: rgb(146, 127, 155);
 }
 
 
