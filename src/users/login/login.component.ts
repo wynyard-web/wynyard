@@ -5,7 +5,8 @@ import { initializeApp } from "firebase/app";
 import {  getAuth, sendPasswordResetEmail, signInWithEmailAndPassword} from "firebase/auth";
 import { environment } from 'src/environments/environment';
 import { getDatabase, ref, get } from 'firebase/database';
-
+import { getStorage, getDownloadURL } from "firebase/storage";
+import {ref as frref} from "firebase/storage";
 
 @Component({
   selector: 'app-login',
@@ -30,6 +31,7 @@ export class LoginComponent  {
   // provider = new GoogleAuthProvider();
 
   user_details:any;
+  bg_url = ""
 
 
   async signIn(loginEmail:any, loginPass:any) {
@@ -74,6 +76,24 @@ export class LoginComponent  {
   go_to_register() {
     this.router.navigate(['/register'])
     console.log("Entered Registration Page")
+  }
+
+  fetch_background() {
+    const firebase_storage = getStorage()
+
+    getDownloadURL(frref(firebase_storage, "assets/login_background.jpg"))
+  .then((url) => {
+    //console.log(url)
+    this.bg_url = url
+    //console.log(this.profile_pic_url)
+
+  })
+  .catch((error) => {
+    // Handle any errors
+    //this.profile_pic_url = "/assets/wynyard/images/prj_logo_black.png"
+    console.log("Error while fetching background:", error)
+   
+  });
   }
 
 
