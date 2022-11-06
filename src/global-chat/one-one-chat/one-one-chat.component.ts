@@ -35,7 +35,7 @@ export class OneOneChatComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.keymail = this.keymail.replace(".", "");
+    this.keymail = this.keymail.replaceAll(".", "");
     this.userlist = this.userdataserv.get_all_users(this.keymail)
   }
 
