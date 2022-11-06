@@ -9,7 +9,7 @@ body{
   font-family: 'Mukta', sans-serif;
 	height:100vh;
 	min-height:550px;
-	background-image: url('/assets/login_background.jpg');
+	background-image: url('https://firebasestorage.googleapis.com/v0/b/site-wynyard.appspot.com/o/assets%2Flogin_background.jpg?alt=media&token=5028cb1f-7eff-4aa1-9483-10dcc908838a');
 	background-repeat: no-repeat;
 	background-size:cover;
 	background-position:center;
