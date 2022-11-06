@@ -20,7 +20,12 @@ img {
     border-radius: 100%;
 }
 .imgdiv {
-   margin:calc(24% - 20px);
+  margin-left: 20%;
+}
+.pp
+{
+  object-fit:scale-down;
+  background-color: whitesmoke;
 }
 
 .matcard_col1, .matcard_col2{
