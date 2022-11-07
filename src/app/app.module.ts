@@ -20,7 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 //cdk
 import {MatDialogModule} from '@angular/material/dialog';
 
@@ -57,7 +57,8 @@ import { PostsModule } from 'src/posts/posts.module';
     MatButtonModule,
     MatCardModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

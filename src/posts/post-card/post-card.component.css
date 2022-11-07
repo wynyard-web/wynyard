@@ -39,7 +39,12 @@ mat-card
   width: fit-content;
   padding: auto;
   background: whitesmoke
+}
 
+mat-card-title:hover
+{
+  color: rgb(222, 76, 252);
+  cursor: pointer;
 }
 
 mat-expansion-panel

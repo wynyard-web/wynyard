@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit,Input } from '@angular/core';
 import { initializeApp } from '@firebase/app';
 import { environment } from 'src/environments/environment';
@@ -14,7 +15,7 @@ import {ref as frref} from "firebase/storage";
 })
 export class PostCardComponent implements OnInit {
 
-  constructor(private userService:UserDataService) { }
+  constructor(private userService:UserDataService,private router:Router) { }
 
   @Input() post_details:any;
 
@@ -123,6 +124,11 @@ export class PostCardComponent implements OnInit {
       console.log("Error loading profile pic:", error)
     })
   });
+  }
+
+  go_to_prof(keymail:any)
+  {
+    this.router.navigate(["viewprofile",keymail])
   }
 
 }

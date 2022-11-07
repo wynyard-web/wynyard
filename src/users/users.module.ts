@@ -15,13 +15,15 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    EditProfileDialogComponent
+    EditProfileDialogComponent,
+    ViewProfileComponent
 
 
   ],

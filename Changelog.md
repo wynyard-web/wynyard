@@ -531,3 +531,9 @@ pending job
 ### Changes by Omkar (4/11/2022)
 - Minor CSS Changes to Login/Register Pages
 - changed replace to replaceAll() to accomodate  email addresses with multiple (.)
+
+<hr>
+
+### Changes by Omkar (7/11/2022)
+- View profile for other users added
+- basic css fixes for chat component

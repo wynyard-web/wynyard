@@ -1,3 +1,4 @@
+import { ViewProfileComponent } from './../users/view-profile/view-profile.component';
 import { PostViewComponent } from './../posts/post-view/post-view.component';
 import { ProfileComponent } from './../users/profile/profile.component';
 import { HomeComponent } from './../structure/home/home.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"register", component:RegisterComponent},
   {path:"profile", component:ProfileComponent},
+  {path:"viewprofile/:profile", component:ViewProfileComponent},
   {path:"add-post", component:AddPostComponent},
   {path:"ViewPost",component:PostViewComponent},
   ];

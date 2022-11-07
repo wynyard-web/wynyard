@@ -1,11 +1,23 @@
 <div class="maindiv">
-<div class="header">
+<div>
 <app-header></app-header>
 </div>
 
 <router-outlet></router-outlet>
 
 <div class="footer">
-<app-footer></app-footer>
-</div>
+  <p>x</p>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h1>About Us</h1>
+      </mat-panel-title>
+      <mat-panel-description>
+        This is a summary of the content
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+  </div>
+
 </div>
