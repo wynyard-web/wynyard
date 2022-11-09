@@ -24,7 +24,7 @@
  .hero {
 	 background-color: #b885fa;
 	 position: relative;
-	 height: 90%;
+	 height: 100%;
 	 overflow-y: scroll;
    overflow-x: hidden;
 	 font-family: 'Montserrat', sans-serif;
@@ -89,3 +89,4 @@
 		 opacity: 0;
 	}
 }
+
