@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
 
 .main_scroll {
     max-height:90%;
@@ -20,7 +21,6 @@
   display: none;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
  .hero {
 	 background-color: #b885fa;
 	 position: relative;

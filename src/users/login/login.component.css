@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+
+
 .back {
     background: url('/assets/login_background.jpg');
     background-size:100% 100%;
 }
 
 
-@import url('https://fonts.googleapis.com/css?family=Mukta');
 body{
   font-family: 'Mukta', sans-serif;
 	height:100vh;
